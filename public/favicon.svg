@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="6" fill="#203D32"/>
+  <!-- Mountain ridge silhouette of Mount Ciremai with subtle contour layer -->
+  <path d="M4 25L13.5 11L18 17L22 12.5L28 25H4Z" fill="#71816A" fill-opacity="0.35"/>
+  <path d="M6 25L14 13L17.5 18L21 14L26 25H6Z" fill="#F5F2E9" fill-opacity="0.9"/>
+  <!-- Summit marker / peak trail contour dot -->
+  <circle cx="14" cy="13" r="1.5" fill="#B77D58"/>
+  <path d="M4 25.5H28" stroke="#DCDDD2" stroke-width="1" stroke-linecap="round"/>
+</svg>

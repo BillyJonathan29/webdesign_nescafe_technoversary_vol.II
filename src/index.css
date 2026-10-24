@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme {
+  --color-forest: #203D32;
+  --color-forest-dark: #172D25;
+  --color-forest-light: #2A4E40;
+  --color-paper: #F5F2E9;
+  --color-paper-light: #FAF8F4;
+  --color-paper-muted: #EDE8DC;
+  --color-moss: #71816A;
+  --color-bark: #74604D;
+  --color-clay: #B77D58;
+  --color-clay-dark: #9A6544;
+  --color-charcoal: #292D29;
+  --color-border-soft: #DCDDD2;
+
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  background-color: #F5F2E9;
+  color: #292D29;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom editorial typography utility classes */
+.font-editorial-serif {
+  font-family: "Newsreader", Georgia, serif;
+}
+
+.font-editorial-sans {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+/* Leaflet map customizations for editorial natural look */
+.leaflet-container {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif !important;
+  background-color: #EDE8DC !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: #F5F2E9 !important;
+  color: #292D29 !important;
+  border: 1px solid #DCDDD2 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 12px rgba(32, 61, 50, 0.08) !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.5 !important;
+}
+
+.leaflet-popup-tip {
+  background-color: #F5F2E9 !important;
+  border: 1px solid #DCDDD2 !important;
+}
+
+/* Subtle editorial scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F2E9;
+}
+::-webkit-scrollbar-thumb {
+  background: #DCDDD2;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #71816A;
+}
