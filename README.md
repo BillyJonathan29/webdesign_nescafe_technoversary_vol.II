@@ -1,6 +1,6 @@
-# CiremaiGreen — Digital Conservation & Field Guide
+# CiremaiGreen: Digital Conservation & Field Guide
 
-> **Karya Kompetisi Web Design — TECHNO VERSARY VOL. II**  
+> **Karya Kompetisi Web Design: TECHNO VERSARY VOL. II**  
 > Diselenggarakan oleh: **Himpunan Mahasiswa Teknik Informatika, Fakultas Ilmu Komputer, Universitas Kuningan (HIMA-TI FKOM UNIKU)**  
 > Tema Utama: *"EcoDigital For Environment: Web Design Competition"*  
 > Sub-Tema: *Konservasi Wisata Alam & Travel Destination Ramah Lingkungan*
@@ -132,14 +132,14 @@ npm run preview
 1. **Taksonomi & Status Konservasi**:
    - IUCN Red List of Threatened Species (*Nisaetus bartelsi*, *Panthera pardus melas*, *Presbytis comata*, *Castanopsis argentea*).
    - Peraturan Menteri Lingkungan Hidup dan Kehutanan No. P.106/MENLHK/SETJEN/KUM.1/12/2018 tentang Jenis Tumbuhan dan Satwa Dilindungi.
-   - Balai Taman Nasional Gunung Ciremai (BTNGC) — Data Potensi Hayati & Profil Kawasan.
+   - Balai Taman Nasional Gunung Ciremai (BTNGC): Data Potensi Hayati & Profil Kawasan.
 2. **Data Geospasial**:
    - OpenStreetMap Contributors & Carto DB Tiles.
 3. **Etika Alam Bebas**:
-   - Leave No Trace Center for Outdoor Ethics (*lnt.org*) — The 7 Principles of Outdoor Ethics.
+   - Leave No Trace Center for Outdoor Ethics (*lnt.org*): The 7 Principles of Outdoor Ethics.
 4. **Faktor Emisi Transportasi**:
    - UK DEFRA / IPCC Conversion Factors for Greenhouse Gas Reporting (rata-rata penumpang per km darat).
 
 ---
 
-*CiremaiGreen — Disusun dengan dedikasi untuk pelestarian ekosistem dan kemajuan kompetisi Techno Versary Vol. II FKOM UNIKU.*
+*CiremaiGreen: Disusun dengan dedikasi untuk pelestarian ekosistem dan kemajuan kompetisi Techno Versary Vol. II FKOM UNIKU.*

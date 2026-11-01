@@ -51,6 +51,20 @@ export default function FieldNotes() {
     }
   }, [initialSpeciesId, initialSlug])
 
+  // R-32: Handle Escape key to close open dialog modals
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (selectedSpecies) setSelectedSpecies(null)
+        if (selectedArticle) setSelectedArticle(null)
+      }
+    }
+    if (selectedSpecies || selectedArticle) {
+      window.addEventListener('keydown', handleKeyDown)
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [selectedSpecies, selectedArticle])
+
   // Filtered Species
   const filteredSpecies = useMemo(() => {
     return BIODIVERSITY.filter((s) => {
@@ -201,62 +215,98 @@ export default function FieldNotes() {
             </div>
           </div>
 
-          {/* Species Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {filteredSpecies.map((species) => (
-              <div
-                key={species.id}
-                onClick={() => setSelectedSpecies(species)}
-                className="bg-[#FAF8F4] border border-[#DCDDD2] cursor-pointer group hover:border-[#203D32] transition-colors flex flex-col justify-between overflow-hidden shadow-2xs"
+          {/* Species Empty State */}
+          {filteredSpecies.length === 0 && (
+            <div className="p-12 text-center border border-[#DCDDD2] bg-[#FAF8F4] my-8 space-y-3">
+              <Leaf className="w-8 h-8 text-[#71816A] mx-auto" />
+              <h3 className="font-editorial-serif text-xl text-[#203D32]">
+                Tidak Ada Spesies yang Cocok
+              </h3>
+              <p className="text-sm text-[#74604D] max-w-md mx-auto">
+                Tidak ditemukan data hayati untuk kata kunci &ldquo;{bioSearch}&rdquo;. Coba gunakan nama latin, nama lokal umum, atau atur ulang kategori filter.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setBioSearch('')
+                  setBioFilter('all')
+                }}
+                className="px-4 py-2 bg-[#203D32] text-[#F5F2E9] text-xs font-semibold uppercase tracking-wider mt-2 hover:bg-[#172D25] transition-colors"
               >
-                <div>
-                  <div className="relative aspect-[4/3] overflow-hidden bg-[#203D32]/10 border-b border-[#DCDDD2]">
-                    <img
-                      src={species.imageUrl}
-                      alt={species.commonName}
-                      className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <span
-                      className={`absolute top-2.5 right-2.5 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
-                        species.iucnStatusCode === 'CR'
-                          ? 'bg-rose-900 text-rose-100'
-                          : species.iucnStatusCode === 'EN'
-                          ? 'bg-amber-800 text-amber-100'
-                          : 'bg-[#203D32] text-[#F5F2E9]'
-                      }`}
-                    >
-                      {species.iucnStatus}
-                    </span>
+                Reset Filter Hayati
+              </button>
+            </div>
+          )}
+
+          {/* Species Grid */}
+          {filteredSpecies.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {filteredSpecies.map((species) => (
+                <div
+                  key={species.id}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setSelectedSpecies(species)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      setSelectedSpecies(species)
+                    }
+                  }}
+                  className="bg-[#FAF8F4] border border-[#DCDDD2] cursor-pointer group hover:border-[#203D32] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#203D32] transition-colors flex flex-col justify-between overflow-hidden shadow-2xs"
+                >
+                  <div>
+                    <div className="relative aspect-[4/3] overflow-hidden bg-[#203D32]/10 border-b border-[#DCDDD2]">
+                      <img
+                        src={species.imageUrl}
+                        alt={species.commonName}
+                        width={600}
+                        height={450}
+                        className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <span
+                        className={`absolute top-2.5 right-2.5 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
+                          species.iucnStatusCode === 'CR'
+                            ? 'bg-rose-900 text-rose-100'
+                            : species.iucnStatusCode === 'EN'
+                            ? 'bg-amber-800 text-amber-100'
+                            : 'bg-[#203D32] text-[#F5F2E9]'
+                        }`}
+                      >
+                        {species.iucnStatus}
+                      </span>
+                    </div>
+
+                    <div className="p-5 space-y-2">
+                      <p className="text-[10px] font-mono text-[#74604D] uppercase tracking-wider">
+                        Famili: {species.family}
+                      </p>
+                      <h3 className="font-editorial-serif text-xl text-[#203D32] group-hover:text-[#B77D58] transition-colors">
+                        {species.commonName}
+                      </h3>
+                      <p className="text-xs italic text-[#71816A] font-editorial-serif">
+                        {species.scientificName}
+                      </p>
+                      <p className="text-xs text-[#292D29]/80 font-editorial-sans line-clamp-2 leading-relaxed pt-1">
+                        {species.description}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="p-5 space-y-2">
-                    <p className="text-[10px] font-mono text-[#74604D] uppercase tracking-wider">
-                      Famili: {species.family}
-                    </p>
-                    <h3 className="font-editorial-serif text-xl text-[#203D32] group-hover:text-[#B77D58] transition-colors">
-                      {species.commonName}
-                    </h3>
-                    <p className="text-xs italic text-[#71816A] font-editorial-serif">
-                      {species.scientificName}
-                    </p>
-                    <p className="text-xs text-[#292D29]/80 font-editorial-sans line-clamp-2 leading-relaxed pt-1">
-                      {species.description}
-                    </p>
+                  <div className="p-5 pt-0 mt-2">
+                    <div className="pt-3 border-t border-[#DCDDD2]/70 flex items-center justify-between text-[11px] text-[#74604D]">
+                      <span>Zona: {species.elevationRange}</span>
+                      <span className="font-semibold text-[#203D32] group-hover:text-[#B77D58] flex items-center gap-1">
+                        <span>Lihat Taksonomi</span>
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </span>
+                    </div>
                   </div>
                 </div>
-
-                <div className="p-5 pt-0 mt-2">
-                  <div className="pt-3 border-t border-[#DCDDD2]/70 flex items-center justify-between text-[11px] text-[#74604D]">
-                    <span>Zona: {species.elevationRange}</span>
-                    <span className="font-semibold text-[#203D32] group-hover:text-[#B77D58] flex items-center gap-0.5">
-                      Lihat Taksonomi &rarr;
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
 
@@ -300,66 +350,101 @@ export default function FieldNotes() {
             </div>
           </div>
 
-          {/* Articles Editorial Grid */}
-          <div className="space-y-8">
-            {filteredArticles.map((article) => (
-              <article
-                key={article.id}
-                onClick={() => setSelectedArticle(article)}
-                className="border border-[#DCDDD2] bg-[#FAF8F4] p-6 sm:p-8 cursor-pointer group hover:border-[#203D32] transition-colors"
+          {/* Articles Empty State */}
+          {filteredArticles.length === 0 && (
+            <div className="p-12 text-center border border-[#DCDDD2] bg-[#FAF8F4] my-8 space-y-3">
+              <BookOpen className="w-8 h-8 text-[#B77D58] mx-auto" />
+              <h3 className="font-editorial-serif text-xl text-[#203D32]">
+                Tidak Ada Jurnal yang Cocok
+              </h3>
+              <p className="text-sm text-[#74604D] max-w-md mx-auto">
+                Tidak ditemukan catatan lapangan untuk kata kunci &ldquo;{articleSearch}&rdquo;. Coba gunakan kata kunci lain atau pilih semua kategori.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setArticleSearch('')
+                  setArticleCategory('all')
+                }}
+                className="px-4 py-2 bg-[#203D32] text-[#F5F2E9] text-xs font-semibold uppercase tracking-wider mt-2 hover:bg-[#172D25] transition-colors"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                  <div className="lg:col-span-8 space-y-3">
-                    <div className="flex items-center gap-3 text-xs text-[#74604D] font-mono">
-                      <span className="text-[#B77D58] font-semibold uppercase tracking-wider">
-                        {article.category}
-                      </span>
-                      <span>&bull;</span>
-                      <span>{article.date}</span>
-                      <span>&bull;</span>
-                      <span>{article.readTime}</span>
+                Reset Filter Artikel
+              </button>
+            </div>
+          )}
+
+          {/* Articles Editorial Grid */}
+          {filteredArticles.length > 0 && (
+            <div className="space-y-8">
+              {filteredArticles.map((article) => (
+                <article
+                  key={article.id}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setSelectedArticle(article)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      setSelectedArticle(article)
+                    }
+                  }}
+                  className="border border-[#DCDDD2] bg-[#FAF8F4] p-6 sm:p-8 cursor-pointer group hover:border-[#203D32] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#203D32] transition-colors"
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div className="lg:col-span-8 space-y-3">
+                      <div className="flex items-center gap-3 text-xs text-[#74604D] font-mono">
+                        <span className="text-[#B77D58] font-semibold uppercase tracking-wider">
+                          {article.category}
+                        </span>
+                        <span>&bull;</span>
+                        <span>{article.date}</span>
+                        <span>&bull;</span>
+                        <span>{article.readTime}</span>
+                      </div>
+
+                      <h2 className="font-editorial-serif text-2xl sm:text-3xl text-[#203D32] group-hover:text-[#B77D58] transition-colors leading-snug">
+                        {article.title}
+                      </h2>
+
+                      <p className="text-sm text-[#74604D] italic font-editorial-serif">
+                        {article.subtitle}
+                      </p>
+
+                      <p className="text-sm text-[#292D29]/80 font-editorial-sans leading-relaxed line-clamp-2">
+                        {article.summary}
+                      </p>
+
+                      <div className="pt-3 flex items-center justify-between border-t border-[#DCDDD2]/70 text-xs">
+                        <span className="text-[#74604D]">
+                          Ditulis oleh <strong>{article.author}</strong> ({article.authorRole})
+                        </span>
+                        <span className="font-semibold text-[#203D32] group-hover:text-[#B77D58] flex items-center gap-1 uppercase tracking-wider">
+                          <span>Buka Jurnal</span>
+                          <ChevronRight className="w-4 h-4" />
+                        </span>
+                      </div>
                     </div>
 
-                    <h2 className="font-editorial-serif text-2xl sm:text-3xl text-[#203D32] group-hover:text-[#B77D58] transition-colors leading-snug">
-                      {article.title}
-                    </h2>
-
-                    <p className="text-sm text-[#74604D] italic font-editorial-serif">
-                      {article.subtitle}
-                    </p>
-
-                    <p className="text-sm text-[#292D29]/80 font-editorial-sans leading-relaxed line-clamp-2">
-                      {article.summary}
-                    </p>
-
-                    <div className="pt-3 flex items-center justify-between border-t border-[#DCDDD2]/70 text-xs">
-                      <span className="text-[#74604D]">
-                        Ditulis oleh <strong>{article.author}</strong> ({article.authorRole})
-                      </span>
-                      <span className="font-semibold text-[#203D32] group-hover:text-[#B77D58] flex items-center gap-1 uppercase tracking-wider">
-                        <span>Buka Jurnal</span>
-                        <ChevronRight className="w-4 h-4" />
-                      </span>
+                    <div className="lg:col-span-4">
+                      <div className="relative aspect-[16/10] overflow-hidden bg-[#203D32]/10 border border-[#DCDDD2]">
+                        <img
+                          src={article.featuredImage}
+                          alt={article.imageCaption}
+                          width={640}
+                          height={400}
+                          className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                      <p className="text-[10px] text-[#74604D] font-mono mt-1 text-right">
+                        {article.imageCredit}
+                      </p>
                     </div>
                   </div>
-
-                  <div className="lg:col-span-4">
-                    <div className="relative aspect-[16/10] overflow-hidden bg-[#203D32]/10 border border-[#DCDDD2]">
-                      <img
-                        src={article.featuredImage}
-                        alt={article.imageCaption}
-                        className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    </div>
-                    <p className="text-[10px] text-[#74604D] font-mono mt-1 text-right">
-                      {article.imageCredit}
-                    </p>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+                </article>
+              ))}
+            </div>
+          )}
         </div>
       )}
 
@@ -419,6 +504,8 @@ export default function FieldNotes() {
                   <img
                     src={img.url}
                     alt={img.title}
+                    width={600}
+                    height={450}
                     className="w-full h-full object-cover hover:scale-103 transition-transform duration-500"
                     loading="lazy"
                   />
@@ -460,6 +547,8 @@ export default function FieldNotes() {
               <img
                 src={selectedSpecies.imageUrl}
                 alt={selectedSpecies.commonName}
+                width={800}
+                height={450}
                 className="w-full h-full object-cover"
               />
               <span
@@ -570,7 +659,7 @@ export default function FieldNotes() {
                 {selectedArticle.subtitle}
               </p>
               <p className="text-xs text-[#203D32] font-semibold">
-                Oleh {selectedArticle.author} &mdash; {selectedArticle.authorRole}
+                Ditulis oleh {selectedArticle.author} ({selectedArticle.authorRole})
               </p>
             </div>
 
@@ -579,6 +668,8 @@ export default function FieldNotes() {
               <img
                 src={selectedArticle.featuredImage}
                 alt={selectedArticle.imageCaption}
+                width={1200}
+                height={675}
                 className="w-full h-full object-cover"
               />
             </div>

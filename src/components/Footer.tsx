@@ -20,7 +20,7 @@ export default function Footer() {
             to="/zero-waste"
             className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#B77D58] hover:bg-[#9A6544] text-[#F5F2E9] text-xs font-semibold uppercase tracking-wider rounded-none transition-colors shrink-0"
           >
-            Pelajari Zero-Waste Hiking &rarr;
+            Pelajari Zero-Waste Hiking
           </Link>
         </div>
       </div>
@@ -140,7 +140,7 @@ export default function Footer() {
               Catatan Integritas &amp; Konteks Kompetisi:
             </p>
             <p>
-              Proyek <strong>CiremaiGreen</strong> dirancang sebagai karya orisinal untuk <em>Techno Versary Vol. II — Web Design Competition</em> yang diselenggarakan oleh HIMA-TI FKOM Universitas Kuningan. Data spesies merujuk pada taksonomi resmi dan kategori IUCN Red List / Permen LHK No. P.106/2018. Peta interaktif menggunakan data geospasial OpenStreetMap. Situs ini merupakan inisiatif advokasi digital independen dan bukan media resmi pengelola taman nasional.
+              Proyek <strong>CiremaiGreen</strong> dirancang sebagai karya orisinal untuk <em>Techno Versary Vol. II : Web Design Competition</em> yang diselenggarakan oleh HIMA-TI FKOM Universitas Kuningan. Data spesies merujuk pada taksonomi resmi dan kategori IUCN Red List / Permen LHK No. P.106/2018. Peta interaktif menggunakan data geospasial OpenStreetMap. Situs ini merupakan inisiatif advokasi digital independen dan bukan media resmi pengelola taman nasional.
             </p>
           </div>
         </div>

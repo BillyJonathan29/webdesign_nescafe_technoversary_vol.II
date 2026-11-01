@@ -53,7 +53,7 @@ export default function Navbar() {
           </div>
           <div className="flex items-center gap-4">
             <span className="inline-flex items-center gap-1.5 text-[#203D32] font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#71816A] animate-pulse"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#71816A] animate-pulse motion-reduce:animate-none"></span>
               Status Jalur: Buka (Cuaca Bersahabat)
             </span>
             <span className="text-[#DCDDD2]">&bull;</span>
@@ -61,7 +61,7 @@ export default function Navbar() {
               to="/zero-waste"
               className="text-[#B77D58] hover:text-[#9A6544] font-medium underline underline-offset-2 transition-colors"
             >
-              Cek Checklist Bebas Sampah &rarr;
+              Cek Panduan Bebas Sampah
             </Link>
           </div>
         </div>

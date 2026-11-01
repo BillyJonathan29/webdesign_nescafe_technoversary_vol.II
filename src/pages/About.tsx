@@ -59,6 +59,8 @@ export default function About() {
                 <img
                   src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80"
                   alt="Tutupan hutan hujan pegunungan lereng Ciremai"
+                  width={800}
+                  height={1000}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -188,7 +190,7 @@ export default function About() {
             to="/contact"
             className="px-6 py-3 bg-[#B77D58] hover:bg-[#9A6544] text-[#F5F2E9] text-xs font-semibold uppercase tracking-wider transition-colors shrink-0"
           >
-            Hubungi Tim CiremaiGreen &rarr;
+            Hubungi Tim CiremaiGreen
           </Link>
         </div>
       </div>

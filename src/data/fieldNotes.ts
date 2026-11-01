@@ -58,10 +58,10 @@ export const FIELD_NOTES: Article[] = [
     authorRole: 'Koordinator Edukasi Zero Waste Hiking',
     summary: 'Banyak pendaki beranggapan membuang kulit pisang atau apel ke semak gunung adalah tindakan ramah lingkungan karena "organik". Di suhu pegunungan yang dingin, sains membuktikan sebaliknya.',
     contentParagraphs: [
-      'Salah satu kesalahpahaman paling umum di kalangan penggiat alam bebas adalah asumsi bahwa sisa makanan alami—seperti kulit jeruk, pisang, biji apel, atau sisa nasi—dapat langsung terurai menjadi kompos di semak hutan.',
+      'Salah satu kesalahpahaman paling umum di kalangan penggiat alam bebas adalah asumsi bahwa sisa makanan alami (seperti kulit jeruk, pisang, biji apel, atau sisa nasi) dapat langsung terurai menjadi kompos di semak hutan.',
       'Faktanya, mikroorganisme pengurai membutuhkan suhu hangat dan kelembapan stabil. Di ketinggian 2.000 mdpl ke atas di mana suhu malam hari sering menyentuh 5–10 derajat Celcius, kulit jeruk atau pisang membutuhkan waktu hingga 2 tahun untuk terurai sepenuhnya.',
       'Dampak yang jauh lebih berbahaya adalah pengubahan perilaku satwa liar (habituation). Aroma sisa makanan manusia mengundang tikus gunung, babi hutan, dan monyet ekor panjang untuk mendekati area perkemahan. Satwa kehilangan insting alaminya mencari makan di tajuk pohon, dan mulai bergantung pada sisa sampah pendaki.',
-      'Prinsip Leave No Trace sangat tegas: Apa pun yang Anda bawa naik dari bawah—termasuk biji buah dan kulit buah—harus dibawa turun kembali ke pos sampah di gerbang awal.'
+      'Prinsip Leave No Trace sangat tegas: Apa pun yang Anda bawa naik dari bawah, termasuk biji buah dan kulit buah, harus dibawa turun kembali ke pos sampah di gerbang awal.'
     ],
     keyTakeaway: 'Di suhu dingin pegunungan, kulit pisang membutuhkan hingga 2 tahun untuk terurai. Bawa kembali seluruh sisa makanan Anda tanpa pengecualian.',
     references: [

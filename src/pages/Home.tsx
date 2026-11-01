@@ -18,9 +18,53 @@ export default function Home() {
 
   return (
     <div className="bg-[#F5F2E9] text-[#292D29]">
-      {/* 1. HERO SECTION — Asymmetric Editorial Layout */}
+      {/* 1. HERO SECTION: Asymmetric Editorial Layout */}
       <section className="relative border-b border-[#DCDDD2] overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Authentic Topographic Elevation Contours (Mt. Ciremai Stratovolcano Isoline Paths) */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none select-none opacity-[0.06]"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 800"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M-50,550 C300,520 700,620 1250,380"
+            fill="none"
+            stroke="#203D32"
+            strokeWidth="1.2"
+          />
+          <path
+            d="M-50,470 C320,440 730,540 1250,310"
+            fill="none"
+            stroke="#203D32"
+            strokeWidth="1.2"
+          />
+          <path
+            d="M-50,390 C350,350 770,460 1250,240"
+            fill="none"
+            stroke="#203D32"
+            strokeWidth="1.2"
+          />
+          <path
+            d="M-50,310 C380,260 820,380 1250,170"
+            fill="none"
+            stroke="#203D32"
+            strokeWidth="1.2"
+          />
+          <path
+            d="M-50,220 C420,170 880,300 1250,90"
+            fill="none"
+            stroke="#203D32"
+            strokeWidth="1.2"
+          />
+          {/* Caldera rim contour lines centered near upper right */}
+          <ellipse cx="980" cy="180" rx="190" ry="120" fill="none" stroke="#203D32" strokeWidth="1" strokeDasharray="4 4" />
+          <ellipse cx="980" cy="180" rx="130" ry="80" fill="none" stroke="#203D32" strokeWidth="1" />
+          <ellipse cx="980" cy="180" rx="60" ry="38" fill="none" stroke="#203D32" strokeWidth="1.2" />
+        </svg>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Top Editorial Kicker & Location Datum */}
           <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#DCDDD2]/70 text-xs text-[#74604D] font-editorial-sans">
             <div className="flex items-center gap-2">
@@ -42,8 +86,11 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center pt-10">
             {/* Left Content Column (7 cols) */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-block px-3 py-1 bg-[#EDE8DC] border border-[#DCDDD2] text-[#203D32] text-xs uppercase tracking-[0.16em] font-semibold">
-                Gunung Tertinggi di Jawa Barat
+              {/* Monograph Eyebrow Tag */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#EDE8DC] border border-[#DCDDD2] text-[#203D32] text-xs font-mono tracking-wider">
+                <span className="font-semibold text-[#203D32]">REG. BTNGC-01</span>
+                <span className="text-[#B77D58]">&bull;</span>
+                <span className="text-[#74604D] uppercase font-editorial-sans text-[11px] font-semibold">Atap Tertinggi Jawa Barat</span>
               </div>
 
               <h1 className="font-editorial-serif text-4xl sm:text-5xl lg:text-6xl text-[#203D32] leading-[1.08] tracking-tight">
@@ -76,31 +123,44 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Editorial Micro Highlights Bar */}
-              <div className="pt-6 grid grid-cols-3 gap-4 border-t border-[#DCDDD2]/70 text-xs font-editorial-sans">
-                <div>
-                  <span className="block font-editorial-serif text-2xl font-semibold text-[#203D32]">
-                    3.078<span className="text-sm font-normal text-[#74604D]"> m</span>
-                  </span>
-                  <span className="text-[#74604D] text-[11px] leading-tight block mt-0.5">
-                    Puncak Gunung Tertinggi di Jabar
-                  </span>
-                </div>
-                <div>
-                  <span className="block font-editorial-serif text-2xl font-semibold text-[#203D32]">
-                    4 Jalur
-                  </span>
-                  <span className="text-[#74604D] text-[11px] leading-tight block mt-0.5">
-                    Rute Pendakian Resmi Terdaftar
-                  </span>
-                </div>
-                <div>
-                  <span className="block font-editorial-serif text-2xl font-semibold text-[#203D32]">
-                    54+ Mata Air
-                  </span>
-                  <span className="text-[#74604D] text-[11px] leading-tight block mt-0.5">
-                    Akuifer Penyangga 3 Kabupaten
-                  </span>
+              {/* Field Telemetry Log Table */}
+              <div className="pt-6 border-t border-[#DCDDD2]/80">
+                <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#DCDDD2] border border-[#DCDDD2] bg-[#FAF8F4]/80 text-xs">
+                  <div className="p-3.5 space-y-1">
+                    <div className="text-[10px] font-mono text-[#71816A] uppercase tracking-wider">
+                      01. Titik Tertinggi
+                    </div>
+                    <div className="font-editorial-serif text-2xl font-semibold text-[#203D32]">
+                      3.078<span className="text-xs font-normal font-editorial-sans text-[#74604D]"> mdpl</span>
+                    </div>
+                    <p className="text-[#74604D] text-[11px] leading-snug">
+                      Puncak tertinggi Jawa Barat dengan formasi kaldera ganda
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 space-y-1">
+                    <div className="text-[10px] font-mono text-[#71816A] uppercase tracking-wider">
+                      02. Jalur Registrasi
+                    </div>
+                    <div className="font-editorial-serif text-2xl font-semibold text-[#203D32]">
+                      4 Trayek
+                    </div>
+                    <p className="text-[#74604D] text-[11px] leading-snug">
+                      Linggajati, Palutungan, Apuy, dan Sadarehe resmi terdaftar
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 space-y-1">
+                    <div className="text-[10px] font-mono text-[#71816A] uppercase tracking-wider">
+                      03. Tata Hidrologi
+                    </div>
+                    <div className="font-editorial-serif text-2xl font-semibold text-[#203D32]">
+                      54 Mata Air
+                    </div>
+                    <p className="text-[#74604D] text-[11px] leading-snug">
+                      Menghidupi akuifer DAS Ci Manuk dan Cisanggarung
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -108,25 +168,38 @@ export default function Home() {
             {/* Right Landscape Frame Column (5 cols) */}
             <div className="lg:col-span-5">
               <div className="relative">
-                {/* Outer frame styling with thin editorial border */}
-                <div className="bg-[#EDE8DC] p-2.5 border border-[#DCDDD2] shadow-sm">
+                {/* Outer frame styling with thin editorial border and survey tick marks */}
+                <div className="relative bg-[#EDE8DC] p-2.5 border border-[#DCDDD2] shadow-sm">
+                  {/* Geodetic survey corner crosshairs */}
+                  <span className="absolute -top-1.5 -left-1.5 text-[#71816A] text-xs font-mono leading-none select-none" aria-hidden="true">+</span>
+                  <span className="absolute -top-1.5 -right-1.5 text-[#71816A] text-xs font-mono leading-none select-none" aria-hidden="true">+</span>
+                  <span className="absolute -bottom-1.5 -left-1.5 text-[#71816A] text-xs font-mono leading-none select-none" aria-hidden="true">+</span>
+                  <span className="absolute -bottom-1.5 -right-1.5 text-[#71816A] text-xs font-mono leading-none select-none" aria-hidden="true">+</span>
+
                   <div className="relative aspect-[4/5] overflow-hidden bg-[#203D32]/10">
                     <img
                       src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
                       alt="Punggungan punggung Gunung Ciremai dengan tutupan vegetasi hutan hujan tropis berkabut"
                       className="w-full h-full object-cover object-center filter saturate-[0.95] contrast-[1.05]"
                       loading="eager"
+                      fetchPriority="high"
+                      width={1200}
+                      height={1500}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#203D32]/70 via-transparent to-transparent"></div>
                     
                     {/* Editorial photo overlay tag */}
                     <div className="absolute bottom-3 left-3 right-3 p-3 bg-[#F5F2E9]/95 backdrop-blur-xs border border-[#DCDDD2] text-xs">
+                      <div className="flex items-center justify-between text-[10px] font-mono text-[#71816A] uppercase mb-1">
+                        <span>PELAT ARSIP NO. 01</span>
+                        <span>DOK. TERVERIFIKASI</span>
+                      </div>
                       <p className="font-editorial-serif italic text-sm text-[#203D32]">
                         Lanskap Lereng Ciremai dari Punggungan Linggajati
                       </p>
                       <p className="text-[10px] text-[#74604D] font-editorial-sans mt-0.5 flex justify-between">
                         <span>Zona Sub-Montana &middot; 1.450 mdpl</span>
-                        <span>Dokumentasi Terverifikasi</span>
+                        <span>Formasi Stratovolcano</span>
                       </p>
                     </div>
                   </div>
@@ -134,7 +207,7 @@ export default function Home() {
 
                 {/* Subtitle datum note below frame */}
                 <div className="mt-2.5 text-[11px] text-[#74604D] flex justify-between px-1 font-mono">
-                  <span>FIG. 01 — FORMASI STRATOVOLCANO</span>
+                  <span>FIG. 01 &middot; FORMASI STRATOVOLCANO</span>
                   <span>KUNINGAN, JABAR</span>
                 </div>
               </div>
@@ -143,7 +216,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. ECOLOGICAL ZONATION SECTION — Scientific But Approachable */}
+      {/* 2. ECOLOGICAL ZONATION SECTION: Scientific But Approachable */}
       <section className="py-20 border-b border-[#DCDDD2] bg-[#FAF8F4]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-[#DCDDD2]">
@@ -183,10 +256,13 @@ export default function Home() {
                   <p><strong>Fungsi Kunci:</strong> Resapan air hujan penahan limpasan ke sungai</p>
                 </div>
               </div>
-              <div className="mt-6 pt-4 border-t border-[#DCDDD2] text-xs font-semibold text-[#203D32] flex items-center justify-between">
-                <span>Contoh: Pos Cigowang, Cilengkrang</span>
-                <span className="text-[#B77D58]">&rarr;</span>
-              </div>
+              <Link
+                to="/explore?id=lembah-cilengkrang"
+                className="mt-6 pt-4 border-t border-[#DCDDD2] text-xs font-semibold text-[#203D32] hover:text-[#B77D58] flex items-center justify-between transition-colors"
+              >
+                <span>Lihat Kawasan: Lembah Cilengkrang</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#B77D58]" />
+              </Link>
             </div>
 
             {/* Zone 2: Montana */}
@@ -207,10 +283,13 @@ export default function Home() {
                   <p><strong>Kerapuhan:</strong> Erosi tapak mudah terjadi bila jalur dipotong</p>
                 </div>
               </div>
-              <div className="mt-6 pt-4 border-t border-[#DCDDD2] text-xs font-semibold text-[#203D32] flex items-center justify-between">
-                <span>Contoh: Pos Bapa Tere, Sangga Buana</span>
-                <span className="text-[#B77D58]">&rarr;</span>
-              </div>
+              <Link
+                to="/explore?id=jalur-linggajati"
+                className="mt-6 pt-4 border-t border-[#DCDDD2] text-xs font-semibold text-[#203D32] hover:text-[#B77D58] flex items-center justify-between transition-colors"
+              >
+                <span>Lihat Rute: Pos Bapa Tere (Linggajati)</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#B77D58]" />
+              </Link>
             </div>
 
             {/* Zone 3: Sub-Alpin */}
@@ -231,16 +310,19 @@ export default function Home() {
                   <p><strong>Regulasi:</strong> Dilarang keras memetik tumbuhan apa pun</p>
                 </div>
               </div>
-              <div className="mt-6 pt-4 border-t border-[#DCDDD2] text-xs font-semibold text-[#203D32] flex items-center justify-between">
-                <span>Contoh: Kawah Ganda, Sunan Cirebon</span>
-                <span className="text-[#B77D58]">&rarr;</span>
-              </div>
+              <Link
+                to="/explore?id=jalur-palutungan"
+                className="mt-6 pt-4 border-t border-[#DCDDD2] text-xs font-semibold text-[#203D32] hover:text-[#B77D58] flex items-center justify-between transition-colors"
+              >
+                <span>Lihat Rute: Puncak &amp; Kawah (Palutungan)</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#B77D58]" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. EXPLORE DESTINATIONS — Editorial Grid */}
+      {/* 3. EXPLORE DESTINATIONS: Editorial Grid */}
       <section className="py-20 border-b border-[#DCDDD2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-6 border-b border-[#DCDDD2]">
@@ -274,6 +356,8 @@ export default function Home() {
                     <img
                       src={dest.imageUrl}
                       alt={dest.imageCaption}
+                      width={640}
+                      height={400}
                       className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
                       loading="lazy"
                     />
@@ -321,7 +405,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. BIODIVERSITY HIGHLIGHTS — Authentic Flora & Fauna */}
+      {/* 4. BIODIVERSITY HIGHLIGHTS: Authentic Flora & Fauna */}
       <section className="py-20 border-b border-[#DCDDD2] bg-[#203D32] text-[#F5F2E9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-[#37463E]">
@@ -357,6 +441,8 @@ export default function Home() {
                     <img
                       src={species.imageUrl}
                       alt={species.commonName}
+                      width={600}
+                      height={450}
                       className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
                       loading="lazy"
                     />
@@ -396,7 +482,7 @@ export default function Home() {
                       to={`/field-notes?species=${species.id}`}
                       className="text-[#B77D58] hover:text-[#FAF8F4] font-semibold"
                     >
-                      Detail &rarr;
+                      Lihat Taksonomi
                     </Link>
                   </div>
                 </div>
@@ -406,7 +492,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. CONSERVATION IN PRACTICE — 4 Real Principles */}
+      {/* 5. CONSERVATION IN PRACTICE: 4 Real Principles */}
       <section className="py-20 border-b border-[#DCDDD2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12 space-y-2">
@@ -480,15 +566,16 @@ export default function Home() {
             </div>
             <Link
               to="/zero-waste"
-              className="text-xs font-semibold text-[#B77D58] hover:text-[#9A6544] uppercase tracking-wider shrink-0 underline underline-offset-2"
+              className="text-xs font-semibold text-[#B77D58] hover:text-[#9A6544] uppercase tracking-wider shrink-0 underline underline-offset-2 flex items-center gap-1.5"
             >
-              Buka Interactive Checklist &rarr;
+              <span>Buka Checklist Interaktif</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 6. LATEST FIELD NOTES — Editorial Magazine Style */}
+      {/* 6. LATEST FIELD NOTES: Editorial Magazine Style */}
       <section className="py-20 bg-[#FAF8F4]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#DCDDD2] mb-12">
@@ -517,6 +604,8 @@ export default function Home() {
                 <img
                   src={featuredArticle.featuredImage}
                   alt={featuredArticle.imageCaption}
+                  width={1200}
+                  height={675}
                   className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
                   loading="lazy"
                 />
@@ -571,9 +660,10 @@ export default function Home() {
                     <span>{article.author}</span>
                     <Link
                       to={`/field-notes?slug=${article.slug}`}
-                      className="font-semibold text-[#203D32] hover:text-[#B77D58]"
+                      className="font-semibold text-[#203D32] hover:text-[#B77D58] flex items-center gap-1"
                     >
-                      Baca &rarr;
+                      <span>Baca Catatan</span>
+                      <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>
                 </article>
@@ -592,9 +682,10 @@ export default function Home() {
                 </p>
                 <Link
                   to="/contact?type=contribute"
-                  className="inline-block pt-2 text-xs font-semibold text-[#203D32] hover:text-[#B77D58] underline underline-offset-2"
+                  className="inline-flex items-center gap-1.5 pt-2 text-xs font-semibold text-[#203D32] hover:text-[#B77D58] underline underline-offset-2"
                 >
-                  Kirim Catatan Pengamatan &rarr;
+                  <span>Kirim Catatan Pengamatan</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#B77D58]" />
                 </Link>
               </div>
             </div>

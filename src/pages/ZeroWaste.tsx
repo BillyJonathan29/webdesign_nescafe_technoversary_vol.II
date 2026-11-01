@@ -71,7 +71,7 @@ export default function ZeroWaste() {
     }
     if (progressPercent >= 70) {
       return {
-        label: 'Kesiapan Baik — Periksa Beberapa Poin Kunci',
+        label: 'Kesiapan Baik: Periksa Beberapa Poin Kunci',
         desc: 'Mayoritas persiapan penting sudah siap. Perhatikan sisa item bernilai kritis sebelum berangkat.',
         color: 'text-[#71816A]',
         bg: 'bg-[#FAF8F4]',
@@ -79,7 +79,7 @@ export default function ZeroWaste() {
     }
     if (progressPercent >= 40) {
       return {
-        label: 'Kesiapan Menengah — Perlu Penyesuaian Logistik',
+        label: 'Kesiapan Menengah: Perlu Penyesuaian Logistik',
         desc: 'Masih ada potensi kemasan sachet atau plastik sekali pakai yang berisiko tercecer di gunung.',
         color: 'text-[#B77D58]',
         bg: 'bg-[#FAF8F4]',
@@ -205,7 +205,7 @@ export default function ZeroWaste() {
               <ul className="list-disc list-inside space-y-1 pl-1 text-[#74604D]">
                 {missingCriticalItems.map((item) => (
                   <li key={item.id}>
-                    <strong>{item.title}</strong> &mdash; {item.whyItMatters}
+                    <strong>{item.title}</strong>: {item.whyItMatters}
                   </li>
                 ))}
               </ul>
@@ -266,30 +266,34 @@ export default function ZeroWaste() {
             return (
               <div
                 key={item.id}
+                role="checkbox"
+                aria-checked={isChecked}
+                tabIndex={0}
                 onClick={() => toggleItem(item.id)}
-                className={`p-5 sm:p-6 border transition-all cursor-pointer ${
+                onKeyDown={(e) => {
+                  if (e.key === ' ' || e.key === 'Enter') {
+                    e.preventDefault()
+                    toggleItem(item.id)
+                  }
+                }}
+                className={`p-5 sm:p-6 border transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#203D32] ${
                   isChecked
                     ? 'bg-[#EDE8DC]/60 border-[#203D32]/40 opacity-90'
                     : 'bg-[#FAF8F4] border-[#DCDDD2] hover:border-[#71816A]'
                 }`}
               >
                 <div className="flex items-start gap-4">
-                  {/* Custom Checkbox */}
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      toggleItem(item.id)
-                    }}
-                    className="mt-0.5 shrink-0 text-[#203D32] focus:outline-none"
-                    aria-label={isChecked ? `Uncheck ${item.title}` : `Check ${item.title}`}
+                  {/* Visual Checkbox Indicator */}
+                  <span
+                    className="mt-0.5 shrink-0 text-[#203D32] select-none"
+                    aria-hidden="true"
                   >
                     {isChecked ? (
                       <CheckSquare className="w-5 h-5 text-[#203D32]" />
                     ) : (
                       <Square className="w-5 h-5 text-[#74604D]" />
                     )}
-                  </button>
+                  </span>
 
                   {/* Content */}
                   <div className="flex-1 space-y-2">
@@ -331,7 +335,7 @@ export default function ZeroWaste() {
           })}
         </div>
 
-        {/* CARBON CALCULATOR SECTION — Transparent, Documented Methodology */}
+        {/* CARBON CALCULATOR SECTION: Transparent, Documented Methodology */}
         <section className="pt-10 border-t border-[#DCDDD2]">
           <div className="border border-[#DCDDD2] bg-[#FAF8F4] p-6 sm:p-10 space-y-8">
             <div className="max-w-2xl space-y-2">

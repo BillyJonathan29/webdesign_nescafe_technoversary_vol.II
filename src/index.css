@@ -32,6 +32,40 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* R-39: Accessible interactive cursors */
+a[href],
+button,
+summary,
+select,
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"],
+label[for],
+[role="button"],
+[role="checkbox"],
+[role="tab"] {
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled,
+select:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+/* R-39: Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Custom editorial typography utility classes */
 .font-editorial-serif {
   font-family: "Newsreader", Georgia, serif;

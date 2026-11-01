@@ -234,6 +234,8 @@ export default function Explore() {
                     <img
                       src={selectedDestination.imageUrl}
                       alt={selectedDestination.name}
+                      width={640}
+                      height={400}
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute top-2.5 left-2.5 bg-[#203D32] text-[#F5F2E9] px-2 py-0.5 text-[10px] uppercase font-semibold">
@@ -334,6 +336,8 @@ export default function Explore() {
                     <img
                       src={dest.imageUrl}
                       alt={dest.name}
+                      width={640}
+                      height={400}
                       className="w-full h-full object-cover"
                     />
                     <span className="absolute top-3 left-3 bg-[#203D32] text-[#F5F2E9] px-2.5 py-1 text-[10px] uppercase font-semibold">
