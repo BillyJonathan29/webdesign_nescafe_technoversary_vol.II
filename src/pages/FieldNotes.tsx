@@ -475,13 +475,13 @@ export default function FieldNotes() {
                 credit: 'Forest Survey Archive'
               },
               {
-                url: 'https://images.unsplash.com/photo-1611689342806-0863700ce1e4?auto=format&fit=crop&w=1200&q=80',
+                url: 'images/elang-jawa.jpg',
                 title: 'Elang Jawa (Nisaetus bartelsi)',
                 caption: 'Burung pemangsa endemik bertengger mengintai di kanopi tajuk hutan.',
                 credit: 'Raptor Observation Archive'
               },
               {
-                url: 'https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1200&q=80',
+                url: 'images/lembah-cilengkrang.jpg',
                 title: 'Mata Air dan Curug Lembah',
                 caption: 'Aliran air jernih bebatuan vulkanik andesit di kawasan Cilengkrang.',
                 credit: 'Freshwater Conservation Survey'
@@ -493,7 +493,7 @@ export default function FieldNotes() {
                 credit: 'Alpine Botany Documentation'
               },
               {
-                url: 'https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?auto=format&fit=crop&w=1200&q=80',
+                url: 'images/surili-jawa.jpeg',
                 title: 'Surili Jawa di Tajuk Pohon',
                 caption: 'Primata endemik berbulu abu-abu keperakan pemakan daun muda kanopi.',
                 credit: 'Arboreal Primate Studies'

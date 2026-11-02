@@ -178,7 +178,7 @@ export default function Home() {
 
                   <div className="relative aspect-[4/5] overflow-hidden bg-[#203D32]/10">
                     <img
-                      src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
+                      src="images/ciremai.png"
                       alt="Punggungan punggung Gunung Ciremai dengan tutupan vegetasi hutan hujan tropis berkabut"
                       className="w-full h-full object-cover object-center filter saturate-[0.95] contrast-[1.05]"
                       loading="eager"
@@ -188,20 +188,6 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#203D32]/70 via-transparent to-transparent"></div>
                     
-                    {/* Editorial photo overlay tag */}
-                    <div className="absolute bottom-3 left-3 right-3 p-3 bg-[#F5F2E9]/95 backdrop-blur-xs border border-[#DCDDD2] text-xs">
-                      <div className="flex items-center justify-between text-[10px] font-mono text-[#71816A] uppercase mb-1">
-                        <span>PELAT ARSIP NO. 01</span>
-                        <span>DOK. TERVERIFIKASI</span>
-                      </div>
-                      <p className="font-editorial-serif italic text-sm text-[#203D32]">
-                        Lanskap Lereng Ciremai dari Punggungan Linggajati
-                      </p>
-                      <p className="text-[10px] text-[#74604D] font-editorial-sans mt-0.5 flex justify-between">
-                        <span>Zona Sub-Montana &middot; 1.450 mdpl</span>
-                        <span>Formasi Stratovolcano</span>
-                      </p>
-                    </div>
                   </div>
                 </div>
 

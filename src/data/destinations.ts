@@ -40,7 +40,7 @@ export const DESTINATIONS: Destination[] = [
       'Maksimal kapasitas tenda di Pos Tanjakan Asu & Pos Kawah Burung'
     ],
     isVerified: true,
-    imageUrl: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'images/palutungan.jpg',
     imageCaption: 'Kawasan hutan lereng selatan Ciremai di sekitar rute Palutungan',
     imageCredit: 'Dokumentasi Ekspedisi / Unsplash Curated'
   },
@@ -66,7 +66,7 @@ export const DESTINATIONS: Destination[] = [
       'Kembalikan seluruh sisa kemasan logistik hingga pos gerbang Linggajati'
     ],
     isVerified: true,
-    imageUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'images/linggarjati.jpeg',
     imageCaption: 'Punggungan terjal dan tutupan hutan lebat rute timur Linggajati',
     imageCredit: 'Unsplash Landscape Collection'
   },
@@ -92,7 +92,7 @@ export const DESTINATIONS: Destination[] = [
       'Wajib membawa tumbler air minum guna menekan limbah botol plastik sekali pakai'
     ],
     isVerified: true,
-    imageUrl: 'https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'images/lembah-cilengkrang.jpg',
     imageCaption: 'Aliran sungai berbatu dan tajuk kanopi lembah Cilengkrang',
     imageCredit: 'Forest & River Exploration Archive'
   },
@@ -118,7 +118,7 @@ export const DESTINATIONS: Destination[] = [
       'Seluruh puntung rokok wajib disimpan dalam asbak saku portable'
     ],
     isVerified: true,
-    imageUrl: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'images/curug-putrii.jpeg',
     imageCaption: 'Kawasan air terjun dan hutan lereng Gunung Ciremai',
     imageCredit: 'Nature Waterways Archive'
   },
@@ -144,7 +144,7 @@ export const DESTINATIONS: Destination[] = [
       'Dilarang meninggalkan tisu basah di sepanjang lintasan punggungan'
     ],
     isVerified: true,
-    imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'images/linggasana.jpeg',
     imageCaption: 'Pemandangan kabut pagi di punggungan timur Gunung Ciremai',
     imageCredit: 'Highland Ridge Series'
   },
@@ -170,7 +170,7 @@ export const DESTINATIONS: Destination[] = [
       'Patuhi area batas aman pelindung akar pohon penahan tebing'
     ],
     isVerified: true,
-    imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'images/talaga-biru.jpg',
     imageCaption: 'Kejernihan air danau alami yang bersumber dari resapan Gunung Ciremai',
     imageCredit: 'Aquatic Spring Ecosystems'
   }

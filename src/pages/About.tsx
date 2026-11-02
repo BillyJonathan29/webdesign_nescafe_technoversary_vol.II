@@ -57,7 +57,7 @@ export default function About() {
             <div className="border border-[#DCDDD2] bg-[#FAF8F4] p-3 shadow-xs">
               <div className="relative aspect-[4/5] overflow-hidden bg-[#203D32]/10">
                 <img
-                  src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80"
+                  src="images/hutan-pinus.png"
                   alt="Tutupan hutan hujan pegunungan lereng Ciremai"
                   width={800}
                   height={1000}

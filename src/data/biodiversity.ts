@@ -34,7 +34,7 @@ export const BIODIVERSITY: Species[] = [
     ecologicalRole: 'Apex predator burung yang mengendalikan populasi mamalia kecil, kadal, dan burung hutan.',
     conservationNotes: 'Terpantau aktif bereproduksi di kawasan Lembah Cilengkrang lereng barat-selatan Ciremai. Ancaman utama meliputi fragmentasi habitat dan perburuan liar.',
     scientificReference: 'IUCN Red List of Threatened Species 2023; Balai TN Gunung Ciremai Monitoring Report',
-    imageUrl: 'https://images.unsplash.com/photo-1611689342806-0863700ce1e4?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'images/elang-jawa.jpg',
     imageCredit: 'Raptor Conservation Library / Unsplash Curated',
     verifiedSource: 'IUCN Red List (EN) & Permen LHK P.106/2018'
   },
@@ -53,7 +53,7 @@ export const BIODIVERSITY: Species[] = [
     ecologicalRole: 'Predator puncak mamalia darat yang menjaga keseimbangan populasi babi hutan dan kijang.',
     conservationNotes: 'Kamera trap BTNGC berulang kali merekam keberadaan individu aktif di zona rimba Ciremai. Upaya translokasi dan pelepasliaran secara berkala dipantau ketat.',
     scientificReference: 'IUCN Red List Category: Critically Endangered (2021 assessment)',
-    imageUrl: 'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'images/macan-tutul.jpeg',
     imageCredit: 'Wild Feline Archive / Unsplash Curated',
     verifiedSource: 'IUCN Red List (CR) & Evaluasi Habitat BTNGC'
   },
@@ -72,7 +72,7 @@ export const BIODIVERSITY: Species[] = [
     ecologicalRole: 'Pemencar biji buah hutan dan konsumen selektif daun muda serta pucuk flora pegunungan.',
     conservationNotes: 'Sangat sensitif terhadap kebisingan aktivitas manusia dan jalur setapak yang terlalu ramai di luar koridor resmi pendakian.',
     scientificReference: 'Primate Conservation Assessment Java; Nijman et al. (2020)',
-    imageUrl: 'https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'images/surili-jawa.jpeg',
     imageCredit: 'Arboreal Wildlife Archive / Unsplash Curated',
     verifiedSource: 'IUCN Red List (VU) & Balai TNGC Data Lapangan'
   },
@@ -91,7 +91,7 @@ export const BIODIVERSITY: Species[] = [
     ecologicalRole: 'Insektivora kanopi tengah pemangsa serangga kayu, ulat hutan, dan amfibi kecil.',
     conservationNotes: 'Salah satu burung paling terancam punah di dunia akibat perburuan sangkar di masa lampau. Ciremai menjadi salah satu benteng populasi liar terakhir.',
     scientificReference: 'BirdLife International Red List Authority (2023)',
-    imageUrl: 'https://images.unsplash.com/photo-1552728089-57bdde30beb3?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'images/ekek-geling.jpeg',
     imageCredit: 'Avian Studies Archive / Unsplash Curated',
     verifiedSource: 'BirdLife International & BTNGC Species Inventory'
   },
@@ -110,7 +110,7 @@ export const BIODIVERSITY: Species[] = [
     ecologicalRole: 'Pencegah erosi tebing kawah curam dan sumber pakan nektar bagi serangga sub-alpin.',
     conservationNotes: 'DILARANG KERAS dipetik dalam bentuk apapun. Petugas pos jalur Ciremai menerapkan pemeriksaan ketat pada tas ransel seluruh pendaki turun.',
     scientificReference: 'Peraturan Menteri LHK No. P.106/MENLHK/SETJEN/KUM.1/12/2018',
-    imageUrl: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'images/edelwis.jpg',
     imageCredit: 'Alpine Botany Archive / Unsplash Curated',
     verifiedSource: 'Permen LHK No. P.106/2018'
   },
@@ -129,7 +129,7 @@ export const BIODIVERSITY: Species[] = [
     ecologicalRole: 'Penyokong tajuk utama hutan, penahan cadangan air tanah dalam, dan sumber makanan esensial bagi primata dan tupai.',
     conservationNotes: 'Mengalami penurunan populasi di seluruh Jawa karena penebangan masa lalu; pohon tua berukuran besar dilindungi ketat di kawasan inti Ciremai.',
     scientificReference: 'IUCN Red List assessment for Asian Castanopsis species',
-    imageUrl: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'images/saninten.png',
     imageCredit: 'Old Growth Forest Survey / Unsplash Curated',
     verifiedSource: 'IUCN Red List (EN) & Herbarium Bogoriense Records'
   },
@@ -148,7 +148,7 @@ export const BIODIVERSITY: Species[] = [
     ecologicalRole: 'Tempat bertengger bagi elang dan epifit lumut serta anggrek pegunungan.',
     conservationNotes: 'Membentuk asosiasi hutan konifer tropis yang menstabilkan lereng curam di atas jalur Palutungan dan Linggajati.',
     scientificReference: 'Flora Malesiana Series; IUCN Least Concern Catalog',
-    imageUrl: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'images/jamuju.jpg',
     imageCredit: 'Montane Flora Archive / Unsplash Curated',
     verifiedSource: 'IUCN Red List (LC) & Balai TNGC'
   },
@@ -167,7 +167,7 @@ export const BIODIVERSITY: Species[] = [
     ecologicalRole: 'Indikator biologi kemurnian udara dan kelembapan konstan ekosistem hutan lumut.',
     conservationNotes: 'Sangat rentan terhadap perubahan iklim mikro dan pengambilan ilegal oleh kolektor tanaman hias.',
     scientificReference: 'Jurnal Biologi Tropika & Dokumentasi Inventarisasi Hayati BTNGC',
-    imageUrl: 'https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?auto=format&fit=crop&w=1200&q=80',
+    imageUrl: 'images/anggrek.jpeg',
     imageCredit: 'Botanical Epiphyte Collection / Unsplash Curated',
     verifiedSource: 'Publikasi Taksonomi Flora Balai Penelitian TNGC'
   }
