@@ -66,7 +66,7 @@ export const DESTINATIONS: Destination[] = [
       'Kembalikan seluruh sisa kemasan logistik hingga pos gerbang Linggajati'
     ],
     isVerified: true,
-    imageUrl: 'images/linggarjati.jpeg',
+    imageUrl: 'images/linggajati.jpeg',
     imageCaption: 'Punggungan terjal dan tutupan hutan lebat rute timur Linggajati',
     imageCredit: 'Unsplash Landscape Collection'
   },

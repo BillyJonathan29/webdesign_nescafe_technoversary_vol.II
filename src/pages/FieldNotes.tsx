@@ -463,13 +463,13 @@ export default function FieldNotes() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80',
+                url: 'images/tutupan-awan.png',
                 title: 'Punggungan Timur Ciremai',
                 caption: 'Tutupan awan pagi di atas zona perbatasan montana dan sub-alpin.',
                 credit: 'Highland Ridge Collection'
               },
               {
-                url: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+                url: 'images/hutan-pinus.png',
                 title: 'Hutan Lereng Cisantana',
                 caption: 'Jajaran pohon tegakan pinus dan rasamala di ketinggian 1.200 mdpl.',
                 credit: 'Forest Survey Archive'
@@ -487,7 +487,7 @@ export default function FieldNotes() {
                 credit: 'Freshwater Conservation Survey'
               },
               {
-                url: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80',
+                url: 'images/edelwis.jpg',
                 title: 'Bunga Edelweiss Sub-Alpin',
                 caption: 'Koloni semak Anaphalis javanica di lereng berpasir kawah puncak.',
                 credit: 'Alpine Botany Documentation'
