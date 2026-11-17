@@ -17,13 +17,13 @@ export default function InteractiveMap({
   const mapInstanceRef = useRef<L.Map | null>(null)
   const markersRef = useRef<{ [id: string]: L.Marker }>({})
 
-  // Initialize Map
+  // 1. Initialize Map
   useEffect(() => {
     if (!mapContainerRef.current) return
     if (mapInstanceRef.current) return
 
-    // Center of Mount Ciremai Caldera / Peak
-    const ciremaiCenter: L.LatLngTuple = [-6.892, 108.406]
+    // Center on Mount Ciremai
+    const ciremaiCenter: L.LatLngTuple = [-6.892, 108.412]
 
     const map = L.map(mapContainerRef.current, {
       center: ciremaiCenter,
@@ -32,10 +32,11 @@ export default function InteractiveMap({
       zoomControl: true,
     })
 
-    // Subdued, clean natural OpenStreetMap carto tile layer
+    // OpenStreetMap standard tile layer (100% free, reliable, no API key required)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      subdomains: 'abc',
       maxZoom: 18,
     }).addTo(map)
 
@@ -47,7 +48,7 @@ export default function InteractiveMap({
     }
   }, [])
 
-  // Update Markers
+  // 2. Update Destination Markers
   useEffect(() => {
     const map = mapInstanceRef.current
     if (!map) return
@@ -56,40 +57,35 @@ export default function InteractiveMap({
     Object.values(markersRef.current).forEach((marker) => marker.remove())
     markersRef.current = {}
 
-    // Add markers for current filtered destinations
     destinations.forEach((dest) => {
       const isSelected = selectedDestination?.id === dest.id
 
-      // Custom editorial HTML marker
-      const markerHtml = `
-        <div class="custom-ciremai-marker flex items-center justify-center cursor-pointer transition-transform duration-200 ${
-          isSelected ? 'scale-125 z-50' : 'hover:scale-110'
-        }" style="width: 32px; height: 32px;">
+      const customIcon = L.divIcon({
+        className: 'ciremai-clean-marker',
+        html: `
           <div style="
-            background-color: ${isSelected ? '#B77D58' : '#203D32'};
-            color: #F5F2E9;
-            width: 28px;
-            height: 28px;
-            border-radius: 4px;
-            border: 2px solid #F5F2E9;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+            width: ${isSelected ? '26px' : '20px'};
+            height: ${isSelected ? '26px' : '20px'};
+            background: ${isSelected ? '#10b981' : '#059669'};
+            border: 2.5px solid #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 12px ${isSelected ? 'rgba(16,185,129,0.8)' : 'rgba(0,0,0,0.4)'};
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 11px;
-            font-weight: 700;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            cursor: pointer;
           ">
-            ${dest.type === 'trail' ? '▲' : dest.type === 'waterfall' ? '≈' : '◈'}
+            <div style="
+              width: 6px;
+              height: 6px;
+              background-color: #ffffff;
+              border-radius: 50%;
+            "></div>
           </div>
-        </div>
-      `
-
-      const customIcon = L.divIcon({
-        className: 'custom-leaflet-pin',
-        html: markerHtml,
-        iconSize: [32, 32],
-        iconAnchor: [16, 16],
+        `,
+        iconSize: [isSelected ? 26 : 20, isSelected ? 26 : 20],
+        iconAnchor: [isSelected ? 13 : 10, isSelected ? 13 : 10],
       })
 
       const marker = L.marker(dest.coordinates, { icon: customIcon }).addTo(map)
@@ -98,31 +94,43 @@ export default function InteractiveMap({
         onSelectDestination(dest)
       })
 
+      marker.bindPopup(`
+        <div style="padding: 10px; font-family: 'Mori', sans-serif; background: #0a1610; color: #ffffff; border-radius: 8px; min-width: 190px;">
+          <span style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #34d399; font-weight: 600; display: block; margin-bottom: 2px;">
+            ${dest.categoryLabel}
+          </span>
+          <h4 style="font-size: 13px; font-weight: 600; margin: 0 0 3px 0; color: #ffffff;">
+            ${dest.name}
+          </h4>
+          <p style="font-size: 11px; color: #94a3b8; margin: 0;">
+            ${dest.elevation} &middot; ${dest.district}
+          </p>
+        </div>
+      `)
+
       markersRef.current[dest.id] = marker
     })
   }, [destinations, selectedDestination, onSelectDestination])
 
-  // Pan to selected destination
+  // 3. Center on Selected Destination
   useEffect(() => {
     const map = mapInstanceRef.current
     if (!map || !selectedDestination) return
 
-    map.flyTo(selectedDestination.coordinates, 13, {
-      duration: 1.2,
+    map.flyTo(selectedDestination.coordinates, 12.5, {
+      duration: 1.0,
       easeLinearity: 0.25,
     })
+
+    const activeMarker = markersRef.current[selectedDestination.id]
+    if (activeMarker) {
+      activeMarker.openPopup()
+    }
   }, [selectedDestination])
 
   return (
-    <div className="relative w-full h-full min-h-[420px] rounded-none border border-[#DCDDD2] overflow-hidden">
-      <div ref={mapContainerRef} className="w-full h-full min-h-[420px] z-0" />
-      {/* Editorial map overlay badge */}
-      <div className="absolute top-3 left-3 z-[400] bg-[#F5F2E9]/95 backdrop-blur-xs border border-[#DCDDD2] px-3 py-1.5 text-[11px] text-[#203D32] shadow-xs">
-        <span className="font-semibold">Kawasan TN Gunung Ciremai</span>
-        <span className="text-[#74604D] block text-[9px] font-mono">
-          Leaflet &middot; OpenStreetMap Tiles
-        </span>
-      </div>
+    <div className="w-full h-[380px] sm:h-[420px] ciremai-dark-tiles relative z-10">
+      <div ref={mapContainerRef} className="w-full h-full" />
     </div>
   )
 }

@@ -1,26 +1,33 @@
 import { Link } from 'react-router-dom'
-import { ShieldCheck } from 'lucide-react'
+import { ShieldCheck, Mountain } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function About() {
+  const { lang } = useLanguage()
+
   return (
-    <div className="bg-[#F5F2E9] min-h-screen text-[#292D29]">
-      {/* Header */}
-      <div className="border-b border-[#DCDDD2] bg-[#FAF8F4] py-14">
+    <div className="bg-[#060e09] min-h-screen text-white pt-24 pb-20 font-['Mori',sans-serif]">
+      {/* Header Banner */}
+      <div className="border-b border-white/10 bg-[#0a1610] py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <div className="flex items-center gap-2 text-xs font-editorial-sans text-[#74604D]">
-            <Link to="/" className="hover:text-[#203D32]">Beranda</Link>
-            <span>/</span>
-            <span className="text-[#203D32] font-semibold">Tentang CiremaiGreen</span>
+          <div className="flex items-center gap-2 text-xs text-emerald-400">
+            <Link to="/" className="hover:text-emerald-300">
+              {lang === 'ID' ? 'Beranda' : 'Home'}
+            </Link>
+            <span className="text-white/20">/</span>
+            <span className="text-white font-medium">
+              {lang === 'ID' ? 'Tentang CiremaiGreen' : 'About CiremaiGreen'}
+            </span>
           </div>
 
           <div className="max-w-3xl space-y-3">
-            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#B77D58]">
-              Manifesto &middot; Latar Belakang &middot; Etos
+            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-emerald-400">
+              Manifesto &middot; Latar Belakang &middot; Etos Konservasi
             </span>
-            <h1 className="font-editorial-serif text-3xl sm:text-5xl text-[#203D32] leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-normal text-white tracking-tight">
               Menjembatani Sains Konservasi dengan Langkah Para Penjelajah
             </h1>
-            <p className="text-base sm:text-lg text-[#74604D] font-editorial-sans leading-relaxed">
+            <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
               CiremaiGreen lahir dari kesadaran bahwa keindahan lanskap tidak akan bertahan tanpa pemahaman mendalam tentang ekosistem yang menopangnya.
             </p>
           </div>
@@ -32,15 +39,16 @@ export default function About() {
         {/* Story Section: Asymmetric 2 Columns */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-5">
-            <div className="inline-block px-3 py-1 bg-[#EDE8DC] border border-[#DCDDD2] text-xs font-semibold uppercase tracking-wider text-[#203D32]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+              <Mountain className="w-3.5 h-3.5" />
               Latar Belakang Gagasan
             </div>
 
-            <h2 className="font-editorial-serif text-3xl sm:text-4xl text-[#203D32] leading-snug">
-              Bukan Sekadar Puncak Tertinggi, Melainkan Menara Air Kehidupan Tiga Wilayah
+            <h2 className="text-3xl sm:text-4xl font-normal text-white tracking-tight leading-snug">
+              Bukan Sekadar Puncak Tertinggi, Melainkan Menara Air Kehidupan Tiga Wilayah.
             </h2>
 
-            <div className="space-y-4 text-sm sm:text-base text-[#292D29]/85 font-editorial-sans leading-relaxed">
+            <div className="space-y-4 text-sm sm:text-base text-neutral-300 leading-relaxed">
               <p>
                 Gunung Ciremai menjulang setinggi 3.078 meter di atas permukaan laut sebagai gunung api soliter tertinggi di Jawa Barat. Wilayah lerengnya membentang melintasi Kabupaten Kuningan dan Majalengka, menjadi benteng terakhir bagi hutan hujan pegunungan primer yang menyimpan ratusan spesies flora dan fauna endemik.
               </p>
@@ -54,141 +62,131 @@ export default function About() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="border border-[#DCDDD2] bg-[#FAF8F4] p-3 shadow-xs">
-              <div className="relative aspect-[4/5] overflow-hidden bg-[#203D32]/10">
+            <div className="border border-white/10 bg-[#0f2218] p-3 rounded-3xl shadow-2xl">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-black/40">
                 <img
-                  src="images/hutan-pinus.png"
+                  src="/images/hutan-pinus.png"
                   alt="Tutupan hutan hujan pegunungan lereng Ciremai"
-                  width={800}
-                  height={1000}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="text-[11px] text-[#74604D] font-mono p-2">
-                Hutan pegunungan penyerap air di kawasan Palutungan &bull; Dok. Lanskap Kuningan
+              <p className="text-[11px] text-emerald-300/80 p-2 text-center">
+                Hutan pegunungan penyerap air di kawasan Palutungan &bull; Dok. Lanskap Ciremai
               </p>
             </div>
           </div>
         </section>
 
         {/* 4 Pillars of CiremaiGreen */}
-        <section className="space-y-8 pt-6 border-t border-[#DCDDD2]">
+        <section className="space-y-8 pt-6 border-t border-white/10">
           <div className="max-w-2xl space-y-2">
-            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#B77D58]">
+            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-emerald-400">
               Prinsip Kerja Kami
             </span>
-            <h2 className="font-editorial-serif text-3xl text-[#203D32]">
+            <h2 className="text-3xl text-white font-normal tracking-tight">
               Empat Pilar CiremaiGreen
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="border border-[#DCDDD2] bg-[#FAF8F4] p-6 space-y-3">
-              <span className="font-editorial-serif font-bold text-2xl text-[#B77D58]">01</span>
-              <h3 className="font-editorial-serif text-xl text-[#203D32]">
-                Sains Tanpa Mitos
-              </h3>
-              <p className="text-xs sm:text-sm text-[#292D29]/80 font-editorial-sans leading-relaxed">
-                Menyajikan klasifikasi spesies dengan status IUCN Red List dan peraturan perundangan nasional yang sesungguhnya, bukan menebak atau melebih-lebihkan data.
-              </p>
-            </div>
-
-            <div className="border border-[#DCDDD2] bg-[#FAF8F4] p-6 space-y-3">
-              <span className="font-editorial-serif font-bold text-2xl text-[#B77D58]">02</span>
-              <h3 className="font-editorial-serif text-xl text-[#203D32]">
-                Leave No Trace Nyata
-              </h3>
-              <p className="text-xs sm:text-sm text-[#292D29]/80 font-editorial-sans leading-relaxed">
-                Mendorong disiplin persiapan logistik praktis sejak dari rumah agar potensi sampah plastik dapat dipangkas sebelum kaki menginjak gerbang awal pendakian.
-              </p>
-            </div>
-
-            <div className="border border-[#DCDDD2] bg-[#FAF8F4] p-6 space-y-3">
-              <span className="font-editorial-serif font-bold text-2xl text-[#B77D58]">03</span>
-              <h3 className="font-editorial-serif text-xl text-[#203D32]">
-                Akar Komunitas Lokal
-              </h3>
-              <p className="text-xs sm:text-sm text-[#292D29]/80 font-editorial-sans leading-relaxed">
-                Menghormati masyarakat desa lingkar Ciremai (Palutungan, Linggajati, Pajambon) sebagai garda terdepan penjaga kearifan hutan dan air.
-              </p>
-            </div>
-
-            <div className="border border-[#DCDDD2] bg-[#FAF8F4] p-6 space-y-3">
-              <span className="font-editorial-serif font-bold text-2xl text-[#B77D58]">04</span>
-              <h3 className="font-editorial-serif text-xl text-[#203D32]">
-                Akses Digital Terbuka
-              </h3>
-              <p className="text-xs sm:text-sm text-[#292D29]/80 font-editorial-sans leading-relaxed">
-                Membangun antarmuka web yang ringan, cepat, tanpa komponen berbayar tersembunyi, dan mudah diakses oleh pelajar maupun masyarakat luas di ponsel.
-              </p>
-            </div>
+            {[
+              {
+                num: '01',
+                title: 'Sains Tanpa Mitos',
+                desc: 'Menyajikan klasifikasi spesies dengan status IUCN Red List dan peraturan perundangan nasional yang sesungguhnya, bukan menebak atau melebih-lebihkan data.',
+              },
+              {
+                num: '02',
+                title: 'Leave No Trace Nyata',
+                desc: 'Mendorong disiplin persiapan logistik praktis sejak dari rumah agar potensi sampah plastik dapat dipangkas sebelum kaki menginjak gerbang awal pendakian.',
+              },
+              {
+                num: '03',
+                title: 'Akar Komunitas Lokal',
+                desc: 'Menghormati masyarakat desa lingkar Ciremai (Palutungan, Linggajati, Pajambon) sebagai garda terdepan penjaga kearifan hutan dan air.',
+              },
+              {
+                num: '04',
+                title: 'Akses Digital Terbuka',
+                desc: 'Membangun antarmuka web yang ringan, cepat, tanpa komponen berbayar tersembunyi, dan mudah diakses oleh pelajar maupun masyarakat luas di ponsel.',
+              },
+            ].map((pilar) => (
+              <div
+                key={pilar.num}
+                className="border border-white/10 bg-[#0f2218] rounded-3xl p-6 space-y-3 hover:border-emerald-400/40 transition-colors"
+              >
+                <span className="font-mono font-bold text-2xl text-emerald-400">{pilar.num}</span>
+                <h3 className="text-lg font-bold text-white">{pilar.title}</h3>
+                <p className="text-xs text-neutral-300 leading-relaxed">{pilar.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* Integrity & Attribution Section */}
-        <section id="sources" className="p-8 bg-[#FAF8F4] border border-[#DCDDD2] space-y-6">
-          <div className="flex items-center gap-3 pb-4 border-b border-[#DCDDD2]">
-            <ShieldCheck className="w-6 h-6 text-[#71816A]" />
+        <section id="sources" className="p-8 bg-[#0a1610] border border-white/10 rounded-3xl space-y-6">
+          <div className="flex items-center gap-3 pb-4 border-b border-white/10">
+            <ShieldCheck className="w-6 h-6 text-emerald-400" />
             <div>
-              <h3 className="font-editorial-serif text-2xl text-[#203D32]">
+              <h3 className="text-xl font-bold text-white">
                 Transparansi Sumber &amp; Atribusi Data
               </h3>
-              <p className="text-xs text-[#74604D]">
+              <p className="text-xs text-neutral-400">
                 Komitmen keterbukaan dan kepatuhan penuh terhadap pedoman integritas informasi.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-[#292D29]/85 font-editorial-sans">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-neutral-300">
             <div className="space-y-2">
-              <h4 className="font-semibold text-[#203D32] uppercase tracking-wider text-[11px]">
+              <h4 className="font-semibold text-emerald-400 uppercase tracking-wider text-[11px]">
                 Rujukan Konservasi &amp; Taksonomi:
               </h4>
-              <ul className="list-disc list-inside space-y-1 text-[#74604D]">
-                <li>IUCN Red List of Threatened Species (iucnredlist.org) verifikasi tahun 2021&ndash;2023.</li>
-                <li>Peraturan Menteri LHK No. P.106/MENLHK/SETJEN/KUM.1/12/2018 tentang Jenis Tumbuhan dan Satwa Dilindungi.</li>
-                <li>Publikasi publik inventarisasi hayati Balai Taman Nasional Gunung Ciremai (BTNGC).</li>
-                <li>Steenis, C.G.G.J. van. (1972). <em>The Mountain Flora of Java</em>.</li>
+              <ul className="list-disc list-inside space-y-1 text-neutral-400">
+                <li>IUCN Red List of Threatened Species verifikasi 2021&ndash;2023.</li>
+                <li>Permen LHK No. P.106/2018 tentang Jenis Tumbuhan dan Satwa Dilindungi.</li>
+                <li>Publikasi inventarisasi hayati Balai TN Gunung Ciremai (BTNGC).</li>
+                <li>Steenis, C.G.G.J. van. (1972). The Mountain Flora of Java.</li>
               </ul>
             </div>
 
             <div className="space-y-2">
-              <h4 className="font-semibold text-[#203D32] uppercase tracking-wider text-[11px]">
+              <h4 className="font-semibold text-emerald-400 uppercase tracking-wider text-[11px]">
                 Teknologi &amp; Lisensi Komponen:
               </h4>
-              <ul className="list-disc list-inside space-y-1 text-[#74604D]">
-                <li>Peta Geospasial: Leaflet.js &amp; &copy; OpenStreetMap contributors.</li>
-                <li>Ikon: Lucide React (MIT Open Source License).</li>
-                <li>Tipografi: Newsreader (OFL) &amp; Plus Jakarta Sans (OFL).</li>
-                <li>Bebas Template Berbayar: 100% kode antarmuka dirancang secara mandiri.</li>
+              <ul className="list-disc list-inside space-y-1 text-neutral-400">
+                <li>Peta Geospasial: Leaflet.js &amp; CartoDB Dark Matter / OSM contributors.</li>
+                <li>Ikon &amp; Grafis: Lucide React (MIT License).</li>
+                <li>Tipografi: PP Mori Self-Hosted.</li>
+                <li>Bebas Template Berbayar: 100% kode antarmuka dirancang mandiri.</li>
               </ul>
             </div>
           </div>
 
-          {/* Academic & Non-Official Partnership Statement */}
-          <div className="p-4 bg-[#EDE8DC] border-l-4 border-[#203D32] text-xs text-[#74604D] leading-relaxed">
-            <p className="font-semibold text-[#203D32] mb-1">
-              Pernyataan Kemitraan &amp; Status Hukum:
+          {/* Academic Statement */}
+          <div className="p-4 bg-emerald-950/30 border border-emerald-500/20 rounded-2xl text-xs text-neutral-300 leading-relaxed">
+            <p className="font-semibold text-emerald-300 mb-1">
+              Pernyataan Integritas &amp; Konteks Kompetisi:
             </p>
             <p>
-              Website ini dikembangkan secara independen sebagai proyek peserta lomba <strong>Techno Versary Vol. II Web Design Competition</strong> oleh Himpunan Mahasiswa Teknik Informatika, Fakultas Ilmu Komputer, Universitas Kuningan (UNIKU). Website ini <em>bukan merupakan website resmi</em> dari Balai Taman Nasional Gunung Ciremai (BTNGC) dan bukan representasi resmi dari pengelola taman nasional.
+              Website ini dikembangkan secara independen sebagai proyek peserta lomba <strong>Techno Versary Vol. II Web Design Competition</strong> oleh Himpunan Mahasiswa Teknik Informatika, Fakultas Ilmu Komputer, Universitas Kuningan (UNIKU).
             </p>
           </div>
         </section>
 
         {/* Call to Action */}
-        <div className="p-8 bg-[#203D32] text-[#F5F2E9] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-emerald-950 to-[#07130c] border border-emerald-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xl">
           <div className="space-y-1">
-            <h3 className="font-editorial-serif text-2xl text-[#FAF8F4]">
+            <h3 className="text-2xl font-bold text-white">
               Ingin Terlibat dalam Edukasi Konservasi?
             </h3>
-            <p className="text-xs sm:text-sm text-[#A3B49D]">
-              Kami membuka pintu bagi siapa saja yang ingin menyumbangkan catatan lapangan, usulan materi edukasi, atau berdiskusi.
+            <p className="text-xs sm:text-sm text-neutral-300">
+              Kami membuka kolaborasi bagi siapa saja yang ingin menyumbangkan catatan lapangan dan edukasi alam.
             </p>
           </div>
           <Link
             to="/contact"
-            className="px-6 py-3 bg-[#B77D58] hover:bg-[#9A6544] text-[#F5F2E9] text-xs font-semibold uppercase tracking-wider transition-colors shrink-0"
+            className="px-6 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-white text-xs font-semibold uppercase tracking-wider rounded-full transition-all shadow-lg shadow-emerald-500/20 shrink-0"
           >
             Hubungi Tim CiremaiGreen
           </Link>

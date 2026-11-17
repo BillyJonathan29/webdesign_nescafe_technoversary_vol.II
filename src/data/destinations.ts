@@ -40,7 +40,7 @@ export const DESTINATIONS: Destination[] = [
       'Maksimal kapasitas tenda di Pos Tanjakan Asu & Pos Kawah Burung'
     ],
     isVerified: true,
-    imageUrl: 'images/palutungan.jpg',
+    imageUrl: '/images/palutungan.jpg',
     imageCaption: 'Kawasan hutan lereng selatan Ciremai di sekitar rute Palutungan',
     imageCredit: 'Dokumentasi Ekspedisi / Unsplash Curated'
   },
@@ -66,7 +66,7 @@ export const DESTINATIONS: Destination[] = [
       'Kembalikan seluruh sisa kemasan logistik hingga pos gerbang Linggajati'
     ],
     isVerified: true,
-    imageUrl: 'images/linggajati.jpeg',
+    imageUrl: '/images/linggajati.jpeg',
     imageCaption: 'Punggungan terjal dan tutupan hutan lebat rute timur Linggajati',
     imageCredit: 'Unsplash Landscape Collection'
   },
@@ -92,7 +92,7 @@ export const DESTINATIONS: Destination[] = [
       'Wajib membawa tumbler air minum guna menekan limbah botol plastik sekali pakai'
     ],
     isVerified: true,
-    imageUrl: 'images/lembah-cilengkrang.jpg',
+    imageUrl: '/images/lembah-cilengkrang.jpg',
     imageCaption: 'Aliran sungai berbatu dan tajuk kanopi lembah Cilengkrang',
     imageCredit: 'Forest & River Exploration Archive'
   },
@@ -118,7 +118,7 @@ export const DESTINATIONS: Destination[] = [
       'Seluruh puntung rokok wajib disimpan dalam asbak saku portable'
     ],
     isVerified: true,
-    imageUrl: 'images/curug-putrii.jpeg',
+    imageUrl: '/images/curug-putrii.jpeg',
     imageCaption: 'Kawasan air terjun dan hutan lereng Gunung Ciremai',
     imageCredit: 'Nature Waterways Archive'
   },
@@ -144,7 +144,7 @@ export const DESTINATIONS: Destination[] = [
       'Dilarang meninggalkan tisu basah di sepanjang lintasan punggungan'
     ],
     isVerified: true,
-    imageUrl: 'images/linggasana.jpeg',
+    imageUrl: '/images/linggasana.jpeg',
     imageCaption: 'Pemandangan kabut pagi di punggungan timur Gunung Ciremai',
     imageCredit: 'Highland Ridge Series'
   },
@@ -170,8 +170,35 @@ export const DESTINATIONS: Destination[] = [
       'Patuhi area batas aman pelindung akar pohon penahan tebing'
     ],
     isVerified: true,
-    imageUrl: 'images/talaga-biru.jpg',
+    imageUrl: '/images/talaga-biru.jpg',
     imageCaption: 'Kejernihan air danau alami yang bersumber dari resapan Gunung Ciremai',
     imageCredit: 'Aquatic Spring Ecosystems'
+  },
+  {
+    id: 'jalur-apuy',
+    name: 'Jalur Pendakian Apuy (Majalengka)',
+    type: 'trail',
+    categoryLabel: 'Jalur Pendakian',
+    elevation: '1.150 – 3.078 mdpl',
+    coordinates: [-6.9042, 108.3582],
+    locationName: 'Desa Argamukti, Argapura',
+    district: 'Kabupaten Majalengka',
+    description: 'Pintu gerbang barat Gunung Ciremai yang terkenal dengan hamparan kebun sayur terasering Argapura, waktu tempuh relatif lebih singkat, dan area kemah favorit di Goa Walet.',
+    ecosystemType: 'Lereng Barat Sub-Montana & Alpin',
+    keyFeatures: [
+      'Titik awal Basecamp Berod dengan pemandangan lembah Majalengka',
+      'Pos 5 Goa Walet (2.950 mdpl) dekat puncak dengan hamparan edelweiss',
+      'Akses langsung menuju puncak Sunan Cirebon (3.078 mdpl)'
+    ],
+    visitorGuidelines: [
+      'Wajib membawa kembali seluruh puntung rokok dan sampah makanan',
+      'Patuhi kuota bermalam di Pos Goa Walet yang ditetapkan BTNGC',
+      'Hindari membuat jalur pintas curam yang mempercepat erosi lereng barat'
+    ],
+    isVerified: true,
+    imageUrl: '/images/palutungan.jpg',
+    imageCaption: 'Lanskap jalur barat Gunung Ciremai via Apuy',
+    imageCredit: 'BTNGC Documentation'
   }
 ]
+

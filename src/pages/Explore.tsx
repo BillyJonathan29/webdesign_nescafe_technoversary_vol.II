@@ -8,21 +8,23 @@ import {
   ArrowRight,
   X,
   List,
-  Map as MapIcon
+  Map as MapIcon,
+  Mountain
 } from 'lucide-react'
 import { DESTINATIONS, Destination } from '../data/destinations'
 import InteractiveMap from '../components/InteractiveMap'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Explore() {
   const [searchParams] = useSearchParams()
   const initialId = searchParams.get('id')
+  const { lang } = useLanguage()
 
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null)
   const [viewMode, setViewMode] = useState<'split' | 'list'>('split')
 
-  // Set initial selected destination from URL query param if present
   useEffect(() => {
     if (initialId) {
       const match = DESTINATIONS.find((d) => d.id === initialId)
@@ -34,7 +36,6 @@ export default function Explore() {
     }
   }, [initialId])
 
-  // Filtered destinations
   const filteredDestinations = useMemo(() => {
     return DESTINATIONS.filter((item) => {
       const matchesSearch =
@@ -51,102 +52,108 @@ export default function Explore() {
   }, [searchQuery, selectedCategory])
 
   return (
-    <div className="bg-[#F5F2E9] min-h-screen text-[#292D29]">
-      {/* Editorial Header */}
-      <div className="border-b border-[#DCDDD2] bg-[#FAF8F4] py-12">
+    <div className="bg-[#060e09] min-h-screen text-white pt-24 pb-20 font-['Mori',sans-serif]">
+      {/* 1. Header Banner */}
+      <div className="border-b border-white/[0.08] bg-[#0a1610] py-8 sm:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <div className="flex items-center gap-2 text-xs font-editorial-sans text-[#74604D]">
-            <Link to="/" className="hover:text-[#203D32]">Beranda</Link>
-            <span>/</span>
-            <span className="text-[#203D32] font-semibold">Eksplorasi Kawasan &amp; Peta</span>
+          <div className="flex items-center gap-2 text-xs text-emerald-400">
+            <Link to="/" className="hover:text-emerald-300">
+              {lang === 'ID' ? 'Beranda' : 'Home'}
+            </Link>
+            <span className="text-white/20">/</span>
+            <span className="text-white font-medium">
+              {lang === 'ID' ? 'Eksplorasi & Peta Kawasan' : 'Zonation & Map Explorer'}
+            </span>
           </div>
 
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <div className="max-w-3xl space-y-2">
-              <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#B77D58]">
-                Interactive Field Map
+            <div className="max-w-3xl space-y-1.5">
+              <span className="text-xs uppercase tracking-[0.2em] font-semibold text-emerald-400">
+                Peta Lapangan Interaktif
               </span>
-              <h1 className="font-editorial-serif text-3xl sm:text-4xl lg:text-5xl text-[#203D32] leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-white tracking-tight">
                 Peta &amp; Panduan Kawasan Gunung Ciremai
               </h1>
-              <p className="text-sm sm:text-base text-[#74604D] font-editorial-sans leading-relaxed">
-                Jelajahi titik registrasi resmi jalur pendakian, kawasan resapan air terjun alami, dan zona konservasi flora-fauna di lereng Kuningan.
+              <p className="text-sm text-neutral-300 leading-relaxed max-w-2xl">
+                {lang === 'ID'
+                  ? 'Jelajahi titik registrasi resmi jalur pendakian, kawasan resapan air terjun alami, dan zona konservasi flora-fauna di lereng Kuningan.'
+                  : 'Explore official trailheads, natural waterfall catchments, and biodiversity habitats around Mount Ciremai, Kuningan.'}
               </p>
             </div>
 
-            {/* Mobile View Toggle */}
-            <div className="flex items-center gap-2 bg-[#EDE8DC] p-1 border border-[#DCDDD2] self-start lg:self-end">
+            {/* View Mode Toggle */}
+            <div className="flex items-center gap-1.5 bg-white/[0.04] p-1.5 border border-white/10 rounded-full self-start lg:self-end">
               <button
                 type="button"
                 onClick={() => setViewMode('split')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-colors ${
+                className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer ${
                   viewMode === 'split'
-                    ? 'bg-[#203D32] text-[#F5F2E9]'
-                    : 'text-[#203D32] hover:bg-[#FAF8F4]'
+                    ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20'
+                    : 'text-neutral-300 hover:text-white'
                 }`}
               >
                 <MapIcon className="w-3.5 h-3.5" />
-                <span>Peta &amp; Detail</span>
+                <span>{lang === 'ID' ? 'Peta & Detail' : 'Map & Details'}</span>
               </button>
               <button
                 type="button"
                 onClick={() => setViewMode('list')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider transition-colors ${
+                className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer ${
                   viewMode === 'list'
-                    ? 'bg-[#203D32] text-[#F5F2E9]'
-                    : 'text-[#203D32] hover:bg-[#FAF8F4]'
+                    ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20'
+                    : 'text-neutral-300 hover:text-white'
                 }`}
               >
                 <List className="w-3.5 h-3.5" />
-                <span>Daftar Lengkap</span>
+                <span>{lang === 'ID' ? 'Daftar Lengkap' : 'List View'}</span>
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Filter and Search Bar */}
-      <div className="border-b border-[#DCDDD2] bg-[#F5F2E9] sticky top-20 z-30 shadow-xs">
+      {/* 2. Filter & Search Bar */}
+      <div className="border-b border-white/[0.08] bg-[#060e09]/95 backdrop-blur-md sticky top-20 z-30 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
             {/* Search Input */}
             <div className="relative flex-1 max-w-md">
-              <Search className="w-4 h-4 text-[#74604D] absolute left-3 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-emerald-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
-                placeholder="Cari jalur, air terjun, atau nama desa..."
+                placeholder={lang === 'ID' ? 'Cari jalur, air terjun, atau nama desa...' : 'Search trails, waterfalls, or villages...'}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 bg-[#FAF8F4] border border-[#DCDDD2] text-sm text-[#292D29] placeholder-[#74604D]/60 focus:outline-none focus:border-[#203D32] focus:ring-1 focus:ring-[#203D32]"
+                className="w-full pl-10 pr-4 py-2 bg-white/[0.04] border border-white/10 rounded-xl text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-emerald-400 transition-colors"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#74604D] hover:text-[#203D32]"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-neutral-400 hover:text-white"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
               )}
             </div>
 
-            {/* Category Pills */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 text-xs">
+            {/* Category Filter Pills */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 text-xs no-scrollbar">
               {[
-                { id: 'all', label: 'Semua Kawasan' },
-                { id: 'trail', label: 'Jalur Pendakian' },
-                { id: 'conservation', label: 'Konservasi & Edukasi' },
-                { id: 'waterfall', label: 'Air Terjun' },
-                { id: 'lake', label: 'Danau Resapan' },
+                { id: 'all', label: lang === 'ID' ? 'Semua Kawasan' : 'All Areas' },
+                { id: 'trail', label: lang === 'ID' ? 'Jalur Pendakian' : 'Hiking Trails' },
+                { id: 'conservation', label: lang === 'ID' ? 'Konservasi & Edukasi' : 'Conservation' },
+                { id: 'waterfall', label: lang === 'ID' ? 'Air Terjun' : 'Waterfalls' },
+                { id: 'lake', label: lang === 'ID' ? 'Danau Resapan' : 'Catchment Lakes' },
               ].map((cat) => (
                 <button
                   key={cat.id}
                   type="button"
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-3 py-1.5 border whitespace-nowrap transition-colors ${
+                  className={`px-3.5 py-1.5 rounded-full whitespace-nowrap transition-all border cursor-pointer ${
                     selectedCategory === cat.id
-                      ? 'bg-[#203D32] text-[#F5F2E9] border-[#203D32] font-semibold'
-                      : 'bg-[#FAF8F4] text-[#292D29] border-[#DCDDD2] hover:bg-[#EDE8DC]'
+                      ? 'bg-emerald-500/20 text-emerald-300 border-emerald-400/50 shadow-sm'
+                      : 'bg-white/[0.03] text-neutral-300 border-white/10 hover:border-white/20'
                   }`}
                 >
                   {cat.label}
@@ -157,146 +164,134 @@ export default function Explore() {
         </div>
       </div>
 
-      {/* Main Content Area */}
+      {/* 3. Main Content Area */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* If no match */}
-        {filteredDestinations.length === 0 && (
-          <div className="p-12 text-center border border-[#DCDDD2] bg-[#FAF8F4] my-8 space-y-3">
-            <AlertTriangle className="w-8 h-8 text-[#B77D58] mx-auto" />
-            <h3 className="font-editorial-serif text-xl text-[#203D32]">
-              Tidak Ada Kawasan yang Cocok
-            </h3>
-            <p className="text-sm text-[#74604D] max-w-md mx-auto">
-              Tidak ditemukan lokasi untuk pencarian &ldquo;{searchQuery}&rdquo;. Coba gunakan kata kunci umum seperti &ldquo;Palutungan&rdquo;, &ldquo;Linggajati&rdquo;, atau reset kategori.
-            </p>
-            <button
-              type="button"
-              onClick={() => {
-                setSearchQuery('')
-                setSelectedCategory('all')
-              }}
-              className="px-4 py-2 bg-[#203D32] text-[#F5F2E9] text-xs font-semibold uppercase tracking-wider mt-2"
-            >
-              Reset Filter
-            </button>
+        {filteredDestinations.length === 0 ? (
+          <div className="text-center py-20 bg-white/[0.02] border border-white/10 rounded-2xl space-y-3">
+            <Mountain className="w-10 h-10 text-neutral-500 mx-auto" />
+            <h3 className="text-lg font-semibold text-white">Tidak ada kawasan ditemukan</h3>
+            <p className="text-xs text-neutral-400">Silakan ubah kata kunci pencarian atau filter kategori.</p>
           </div>
-        )}
-
-        {/* View Mode: Split Map & Detail Panel */}
-        {filteredDestinations.length > 0 && viewMode === 'split' && (
+        ) : viewMode === 'split' ? (
+          /* Split View: Left (Map + 2-col Destination Cards) | Right (Selected Inspection Card) */
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left: Map & Location Selector (7 cols) */}
-            <div className="lg:col-span-7 space-y-4">
-              {/* Interactive Map */}
-              <div className="h-[460px] lg:h-[560px]">
+            
+            {/* === LEFT COLUMN: MAP + 2-COLUMN CARDS UNDERNEATH (7 cols) === */}
+            <div className="lg:col-span-7 space-y-5">
+              {/* Map Frame */}
+              <div className="rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl bg-[#0a1610]">
                 <InteractiveMap
                   destinations={filteredDestinations}
                   selectedDestination={selectedDestination}
-                  onSelectDestination={(dest) => setSelectedDestination(dest)}
+                  onSelectDestination={setSelectedDestination}
                 />
               </div>
 
-              {/* Quick Destination Strip under map */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                {filteredDestinations.map((dest) => (
-                  <button
-                    key={dest.id}
-                    type="button"
-                    onClick={() => setSelectedDestination(dest)}
-                    className={`text-left p-3.5 border transition-all ${
-                      selectedDestination?.id === dest.id
-                        ? 'border-[#203D32] bg-[#EDE8DC] shadow-xs'
-                        : 'border-[#DCDDD2] bg-[#FAF8F4] hover:bg-[#EDE8DC]/50'
-                    }`}
-                  >
-                    <div className="flex justify-between items-start text-[11px] text-[#74604D] font-mono">
-                      <span>{dest.categoryLabel}</span>
-                      <span>{dest.elevation}</span>
+              {/* Quick Destination Cards Grid (2 Columns directly below map, exactly like Gambar Kedua) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {filteredDestinations.map((dest) => {
+                  const isSelected = selectedDestination?.id === dest.id
+                  return (
+                    <div
+                      key={dest.id}
+                      onClick={() => {
+                        setSelectedDestination(dest)
+                      }}
+                      className={`p-4 rounded-xl border text-left cursor-pointer transition-all ${
+                        isSelected
+                          ? 'bg-emerald-500/15 border-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.25)]'
+                          : 'bg-[#0c1a13] border-white/[0.08] hover:border-white/20 hover:bg-[#0f2218]'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between text-[11px] font-mono mb-1">
+                        <span className="text-emerald-400 font-semibold">{dest.categoryLabel}</span>
+                        <span className="text-neutral-400">{dest.elevation}</span>
+                      </div>
+                      <h4 className="text-sm font-semibold text-white tracking-tight mb-1">
+                        {dest.name}
+                      </h4>
+                      <p className="text-xs text-neutral-400 flex items-center gap-1 truncate">
+                        <MapPin className="w-3 h-3 text-emerald-400 shrink-0" />
+                        <span>{dest.locationName}</span>
+                      </p>
                     </div>
-                    <div className="font-editorial-serif font-semibold text-[#203D32] text-base mt-1">
-                      {dest.name}
-                    </div>
-                    <div className="text-xs text-[#71816A] flex items-center gap-1 mt-1">
-                      <MapPin className="w-3 h-3 text-[#B77D58]" />
-                      <span>{dest.locationName}</span>
-                    </div>
-                  </button>
-                ))}
+                  )
+                })}
               </div>
             </div>
 
-            {/* Right: Selected Location Detail Panel (5 cols) */}
+            {/* === RIGHT COLUMN: DETAILED INSPECTION CARD (5 cols, exactly like Gambar Kedua) === */}
             <div className="lg:col-span-5">
               {selectedDestination ? (
-                <div className="border border-[#DCDDD2] bg-[#FAF8F4] p-6 space-y-6">
-                  {/* Photo with credit */}
-                  <div className="relative aspect-[16/10] overflow-hidden bg-[#203D32]/10 border border-[#DCDDD2]">
-                    <img
-                      src={selectedDestination.imageUrl}
-                      alt={selectedDestination.name}
-                      width={640}
-                      height={400}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute top-2.5 left-2.5 bg-[#203D32] text-[#F5F2E9] px-2 py-0.5 text-[10px] uppercase font-semibold">
-                      {selectedDestination.categoryLabel}
+                <div className="bg-[#0c1a13] border border-white/[0.08] rounded-2xl p-6 space-y-5 shadow-2xl">
+                  {/* Photo Banner with credit */}
+                  <div className="space-y-2">
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/[0.08] bg-black/40">
+                      <img
+                        src={selectedDestination.imageUrl}
+                        alt={selectedDestination.name}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-md text-emerald-300 border border-white/10 px-2.5 py-0.5 text-[10px] font-mono uppercase tracking-wider rounded">
+                        {selectedDestination.categoryLabel}
+                      </div>
                     </div>
+                    <p className="text-[10px] text-neutral-400 font-mono italic">
+                      {selectedDestination.imageCaption} &bull; Sumber: {selectedDestination.imageCredit}
+                    </p>
                   </div>
-                  <p className="text-[10px] text-[#74604D] font-mono italic -mt-4">
-                    {selectedDestination.imageCaption} &bull; Sumber: {selectedDestination.imageCredit}
-                  </p>
 
-                  {/* Header info */}
-                  <div className="space-y-1.5 pb-4 border-b border-[#DCDDD2]">
-                    <div className="flex items-center justify-between text-xs text-[#74604D] font-mono">
+                  {/* Header datum: Elevation & Coordinates */}
+                  <div className="space-y-1.5 pb-4 border-b border-white/[0.08]">
+                    <div className="flex items-center justify-between text-xs font-mono text-emerald-400">
                       <span>{selectedDestination.elevation}</span>
                       <span>{selectedDestination.coordinates[0].toFixed(4)}&deg;, {selectedDestination.coordinates[1].toFixed(4)}&deg;</span>
                     </div>
-                    <h2 className="font-editorial-serif text-2xl text-[#203D32]">
+                    <h2 className="text-2xl font-normal text-white tracking-tight">
                       {selectedDestination.name}
                     </h2>
-                    <p className="text-xs text-[#71816A] flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5 text-[#B77D58]" />
+                    <p className="text-xs text-neutral-400 flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                       <span>{selectedDestination.locationName}, {selectedDestination.district}</span>
                     </p>
                   </div>
 
-                  {/* Description */}
-                  <div className="space-y-2">
-                    <h3 className="text-xs uppercase tracking-[0.16em] font-semibold text-[#74604D]">
+                  {/* Karakter Ekologis */}
+                  <div className="space-y-1.5">
+                    <h3 className="text-[11px] font-mono uppercase tracking-[0.15em] font-semibold text-emerald-400">
                       Karakter Ekologis
                     </h3>
-                    <p className="text-xs font-semibold text-[#203D32]">{selectedDestination.ecosystemType}</p>
-                    <p className="text-sm text-[#292D29]/85 font-editorial-sans leading-relaxed">
+                    <p className="text-xs font-semibold text-white">{selectedDestination.ecosystemType}</p>
+                    <p className="text-xs text-neutral-300 leading-relaxed">
                       {selectedDestination.description}
                     </p>
                   </div>
 
-                  {/* Key Features */}
-                  <div className="space-y-2 pt-2">
-                    <h3 className="text-xs uppercase tracking-[0.16em] font-semibold text-[#74604D]">
+                  {/* Karakteristik Kunci */}
+                  <div className="space-y-2 pt-1">
+                    <h3 className="text-[11px] font-mono uppercase tracking-[0.15em] font-semibold text-emerald-400">
                       Karakteristik Kunci
                     </h3>
-                    <ul className="space-y-1.5 text-xs text-[#292D29]/85">
+                    <ul className="space-y-1.5 text-xs text-neutral-300">
                       {selectedDestination.keyFeatures.map((feat, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#71816A] shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  {/* Visitor Guidelines / Leave No Trace */}
-                  <div className="p-4 bg-[#EDE8DC] border border-[#DCDDD2] space-y-2">
-                    <div className="flex items-center gap-2 text-xs font-semibold text-[#203D32]">
-                      <AlertTriangle className="w-4 h-4 text-[#B77D58]" />
+                  {/* Ketentuan Kunjungan & Konservasi */}
+                  <div className="p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl space-y-2">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-amber-300">
+                      <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0" />
                       <span>Ketentuan Kunjungan &amp; Konservasi</span>
                     </div>
-                    <ul className="space-y-1 text-xs text-[#74604D]">
+                    <ul className="space-y-1 text-xs text-neutral-300">
                       {selectedDestination.visitorGuidelines.map((guide, i) => (
-                        <li key={i} className="flex items-start gap-1.5">
-                          <span>&bull;</span>
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-amber-400">&bull;</span>
                           <span>{guide}</span>
                         </li>
                       ))}
@@ -307,82 +302,79 @@ export default function Explore() {
                   <div className="pt-2">
                     <Link
                       to="/zero-waste"
-                      className="w-full flex items-center justify-center gap-2 py-3 bg-[#203D32] hover:bg-[#172D25] text-[#F5F2E9] text-xs font-semibold uppercase tracking-wider transition-colors"
+                      className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white text-xs font-semibold uppercase tracking-wider transition-all shadow-lg shadow-emerald-500/20"
                     >
                       <span>Siapkan Logistik Nol Sampah</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#B77D58]" />
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
                 </div>
               ) : (
-                <div className="p-12 border border-[#DCDDD2] bg-[#FAF8F4] text-center text-sm text-[#74604D]">
-                  Pilih salah satu lokasi pada peta atau daftar di bawah untuk melihat rincian ekologis.
+                <div className="p-12 border border-white/[0.08] bg-[#0c1a13] rounded-2xl text-center text-xs text-neutral-400">
+                  Pilih salah satu lokasi pada peta atau daftar di sebelah kiri untuk melihat rincian ekologis.
                 </div>
               )}
             </div>
-          </div>
-        )}
 
-        {/* View Mode: Full List View (Editorial Cards) */}
-        {filteredDestinations.length > 0 && viewMode === 'list' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          </div>
+        ) : (
+          /* View Mode: Full List View (Clean Editorial Grid) */
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredDestinations.map((dest) => (
               <article
                 key={dest.id}
-                className="border border-[#DCDDD2] bg-[#FAF8F4] flex flex-col justify-between overflow-hidden"
+                className="bg-[#0c1a13] border border-white/[0.08] hover:border-emerald-400/50 rounded-2xl flex flex-col justify-between overflow-hidden transition-all group"
               >
                 <div>
-                  <div className="relative aspect-[16/10] overflow-hidden bg-[#203D32]/10 border-b border-[#DCDDD2]">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-black/40 border-b border-white/[0.08]">
                     <img
                       src={dest.imageUrl}
                       alt={dest.name}
-                      width={640}
-                      height={400}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <span className="absolute top-3 left-3 bg-[#203D32] text-[#F5F2E9] px-2.5 py-1 text-[10px] uppercase font-semibold">
+                    <span className="absolute top-3 left-3 bg-black/80 backdrop-blur-md text-emerald-300 border border-white/10 px-2.5 py-0.5 text-[10px] font-mono uppercase tracking-wider rounded">
                       {dest.categoryLabel}
                     </span>
                   </div>
 
                   <div className="p-6 space-y-3">
-                    <div className="flex items-center justify-between text-xs text-[#74604D] font-mono">
+                    <div className="flex items-center justify-between text-xs text-neutral-400 font-mono">
                       <span>{dest.elevation}</span>
                       <span>{dest.district}</span>
                     </div>
 
-                    <h3 className="font-editorial-serif text-2xl text-[#203D32]">
+                    <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
                       {dest.name}
                     </h3>
 
-                    <p className="text-xs text-[#71816A]">
+                    <p className="text-xs text-emerald-400/80">
                       {dest.locationName}
                     </p>
 
-                    <p className="text-sm text-[#292D29]/80 font-editorial-sans leading-relaxed line-clamp-3">
+                    <p className="text-xs text-neutral-300 leading-relaxed line-clamp-3">
                       {dest.description}
                     </p>
 
-                    <div className="pt-2 border-t border-[#DCDDD2]/60 space-y-1">
-                      <span className="text-[11px] font-semibold text-[#74604D] block uppercase tracking-wider">
+                    <div className="pt-2 border-t border-white/[0.08] space-y-1">
+                      <span className="text-[10px] font-semibold text-neutral-400 block uppercase tracking-wider">
                         Ketentuan Kunci:
                       </span>
-                      <p className="text-xs text-[#74604D] italic">
+                      <p className="text-xs text-neutral-400 italic">
                         {dest.visitorGuidelines[0]}
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="p-6 pt-0 mt-4">
+                <div className="p-6 pt-0 mt-2">
                   <button
                     type="button"
                     onClick={() => {
                       setSelectedDestination(dest)
                       setViewMode('split')
-                      window.scrollTo({ top: 300, behavior: 'smooth' })
+                      window.scrollTo({ top: 250, behavior: 'smooth' })
                     }}
-                    className="w-full py-2.5 border border-[#203D32] text-[#203D32] hover:bg-[#203D32] hover:text-[#F5F2E9] text-xs font-semibold uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
+                    className="w-full py-2.5 rounded-xl border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500 hover:text-white text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <span>Fokuskan ke Peta Interaktif</span>
                     <ArrowRight className="w-3.5 h-3.5" />
