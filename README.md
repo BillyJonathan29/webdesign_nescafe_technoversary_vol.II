@@ -5,7 +5,7 @@
   <p>Tema Utama: <em>"EcoDigital For Environment: Web Design Competition"</em><br />Sub-Tema: <em>Konservasi Wisata Alam & Travel Destination Ramah Lingkungan</em></p>
   <p>Tim Pengembang: <strong>Tim Nescafe</strong></p>
   <p>
-    <a href="https://webdesign-nescafe-technoversary-vol.vercel.app/" target="_blank">
+    <a href="https://ciremaigreen-nescafe.vercel.app/" target="_blank">
       <strong>🌐 Live Deployment (Vercel)</strong>
     </a>
   </p>
