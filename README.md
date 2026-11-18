@@ -2,10 +2,15 @@
   <h1>🌲 CiremaiGreen — Digital Conservation & Ecotourism Field Guide</h1>
   <p><strong>Karya Lomba Web Design Nasional: TECHNO VERSARY VOL. II</strong></p>
   <p>Diselenggarakan oleh: <strong>Himpunan Mahasiswa Teknik Informatika (HIMA-TI)</strong><br />Fakultas Ilmu Komputer, Universitas Kuningan (UNIKU)</p>
-  <p>Tema Utama: <em>"EcoDigital For Environment: Web Design Competition"</em><br />Sub-Tema: <em>Konservasi Wisata Alam & Travel Destination Ramah Lingkungan</em></p>
+  <p>Tema Utama: <em>"EcoDigital For Environment: Web Design Competition"</em></p>
+  <p>
+    <strong>Sinergi Integrasi 2 Sub-Tema:</strong><br />
+    🌿 <strong>Sub-Tema 1:</strong> <em>Konservasi Lingkungan & Keanekaragaman Hayati</em><br />
+    🧭 <strong>Sub-Tema 2:</strong> <em>Ekowisata Mandiri & Destinasi Wisata Ramah Lingkungan</em>
+  </p>
   <p>Tim Pengembang: <strong>Tim Nescafe</strong></p>
   <p>
-    <a href="https://ciremaigreen-nescafe.vercel.app/" target="_blank">
+    <a href="https://webdesign-nescafe-technoversary-vol.vercel.app/" target="_blank">
       <strong>🌐 Live Deployment (Vercel)</strong>
     </a>
   </p>
@@ -13,11 +18,24 @@
 
 ---
 
-## 📖 1. Ikhtisar & Filosofi Karya (Project Overview)
+## 📖 1. Ikhtisar & Sinergi 2 Sub-Tema (Project Overview)
 
 **CiremaiGreen** adalah platform *digital conservation field guide* dan edukasi ekowisata mandiri untuk kawasan **Taman Nasional Gunung Ciremai (3.078 mdpl)** — atap tertinggi Jawa Barat yang membentang di Kabupaten Kuningan dan Majalengka.
 
-Website ini dirancang secara khusus untuk keluar dari klise website wisata komersial konvensional maupun *AI-generated slop*. CiremaiGreen memadukan estetika **Modern Dark Luxury (Obsidian & Forest Emerald)**, jurnalisme alam editorial bergaya majalah (*editorial typography*), data ilmiah terverifikasi, serta simulasi audit etika penjelajahan bebas sampah (*Leave No Trace*).
+Website ini dirancang secara khusus sebagai integrasi harmonis antara **2 sub-tema lomba** dalam satu kesatuan arsitektur digital: menghadirkan pengalaman penjelajahan alam yang memikat sekaligus menanamkan tanggung jawab proteksi ekosistem. CiremaiGreen memadukan estetika **Modern Dark Luxury (Obsidian & Forest Emerald)**, jurnalisme alam editorial bergaya majalah (*editorial typography*), data ilmiah terverifikasi, serta simulasi audit etika penjelajahan bebas sampah (*Leave No Trace*).
+
+### 🌿 Implementasi Sinergis 2 Sub-Tema Kompetisi
+Karya ini tidak hanya memilih satu sudut pandang, melainkan menyatukan **kedua sub-tema** secara holistik:
+
+1. **Sub-Tema 1: Konservasi Lingkungan & Keanekaragaman Hayati**
+   - **Indeks Spesies Dilindungi**: Inventarisasi taksonomi mendalam flora & fauna terancam punah (*Nisaetus bartelsi*, *Panthera pardus melas*, *Presbytis comata*, *Anaphalis javanica*) merujuk pada **IUCN Red List** dan **Permen LHK P.106/2018**.
+   - **Stratifikasi Zonasi Ekologi**: Visualisasi edukatif 4 zona kawasan konservasi (Zona Inti, Zona Rimba, Zona Pemanfaatan, dan Zona Rehabilitasi).
+   - **Etika Bebas Sampah (Leave No Trace)**: Edukasi interaktif pelarangan sampah plastik, tisu basah, dan perlindungan vegetasi sub-alpin dari degradasi fisik.
+
+2. **Sub-Tema 2: Ekowisata Mandiri & Destinasi Ramah Lingkungan**
+   - **Peta Geospasial 4 Jalur Pendakian Resmi**: Pemetaan interaktif rute Palutungan, Linggajati, Linggasana, dan Apuy lengkap dengan profil elevasi, koordinat GPS, dan pos registrasi BTNGC.
+   - **Kalkulator Jejak Karbon & Audit Logistik**: Alat bantu mandiri bagi pendaki untuk mengukur estimasi emisi transportasi darat dan checklist kesiapan logistik bebas sampah sebelum menuju basecamp.
+   - **Integrasi Pos Jaga & Jalur Edukasi**: Titik sebaran suaka alam, air terjun resapan, dan kontak siaga pos ranger untuk keselamatan pengunjung.
 
 ### 🎨 Art Direction & Identitas Visual
 - **Latar Belakang Obsidian Deep Forest** (`#060e09` & `#0f2218`): Menciptakan kontras imersif yang menonjolkan panorama kawah serta keasrian vegetasi hutan pegunungan.
@@ -73,10 +91,10 @@ Menggunakan **Framer Motion** terintegrasi dengan **Lenis Smooth Scroll** untuk 
 
 1. **Orisinalitas Komponen 100% (No Paid Templates)**:  
    Sesuai regulasi kompetisi, proyek ini **murni dibangun dari nol** tanpa menggunakan template berbayar (Tailwind UI, ThemeForest, dsb.). Seluruh antarmuka, tata letak grid, dan sistem kartu direkayasa mandiri.
-2. **Kepatuhan Anti-Slop Standard**:  
-   - 0 emoji generik pada tombol aksi (digantikan dengan ikon presisi dari Lucide React).
-   - Bebas dari efek *endless ping / floating sparkle* yang tidak memiliki fungsi hierarki.
-   - Rasio kontras teks di atas latar belakang gelap telah memenuhi standar **WCAG AAA** untuk keterbacaan optimal.
+2. **Standar Rekayasa UI/UX Human-Centered & Aksesibilitas Tinggi (WCAG AAA)**:  
+   - Menghindari ornamen generik tanpa fungsi hierarki visual yang jelas.
+   - Rasio kontras teks di atas latar belakang gelap telah memenuhi standar **WCAG AAA** untuk kenyamanan mata dan keterbacaan optimal.
+   - Komposisi tipografi asimetris yang elegan dengan *micro-interactions* berbasis fisika halus.
 3. **Optimasi Performa & Zero Memory Leak**:  
    - Vite 6 manual chunk splitting: `vendor-react`, `vendor-leaflet`, `vendor-icons`.
    - Menggunakan animasi berbasis GPU (`transform`, `opacity`) agar performa tetap 60–120 FPS di perangkat seluler maupun desktop.
@@ -104,10 +122,10 @@ Untuk menjalankan proyek ini di komputer lokal:
 
 ```bash
 # 1. Clone repositori ini
-git clone https://github.com/bilcode/ciremaigreen.git
+git clone https://github.com/BillyJonathan29/webdesign_nescafe_technoversary_vol.II.git
 
 # 2. Masuk ke direktori proyek
-cd ciremaigreen
+cd webdesign_nescafe_technoversary_vol.II
 
 # 3. Instal semua dependensi
 npm install
@@ -146,5 +164,5 @@ npm run preview
 ---
 
 <div align="center">
-  <p>Dibuat dengan ❤️ dan komitmen konservasi oleh <strong>Tim Nescafe</strong> untuk <strong>Techno Versary Vol. II HIMA-TI FKOM UNIKU</strong>.</p>
+  <p>Dibuat dengan ❤️ dan dedikasi konservasi oleh <strong>Tim Nescafe</strong> untuk <strong>Techno Versary Vol. II HIMA-TI FKOM UNIKU</strong>.</p>
 </div>
