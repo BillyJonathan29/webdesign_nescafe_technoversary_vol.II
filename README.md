@@ -4,7 +4,7 @@
   <p>Diselenggarakan oleh: <strong>Himpunan Mahasiswa Teknik Informatika (HIMA-TI)</strong><br />Fakultas Ilmu Komputer, Universitas Kuningan (UNIKU)</p>
   <p>Tema: <em>"Lingkungan (EcoDigital For Environment)"</em> &middot; Tim Pengembang: <strong>Tim Nescafe</strong></p>
   <p>
-    <a href="https://webdesign-nescafe-technoversary-vol.vercel.app/" target="_blank">
+    <a href="https://ciremaigreen-nescafe.vercel.app/" target="_blank">
       <strong>🌐 Kunjungi Live Deployment (Vercel)</strong>
     </a>
   </p>
