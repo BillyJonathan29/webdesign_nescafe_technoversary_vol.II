@@ -2,47 +2,34 @@
   <h1>🌲 CiremaiGreen — Digital Conservation & Ecotourism Field Guide</h1>
   <p><strong>Karya Lomba Web Design Nasional: TECHNO VERSARY VOL. II</strong></p>
   <p>Diselenggarakan oleh: <strong>Himpunan Mahasiswa Teknik Informatika (HIMA-TI)</strong><br />Fakultas Ilmu Komputer, Universitas Kuningan (UNIKU)</p>
-  <p>Tema Utama: <em>"EcoDigital For Environment: Web Design Competition"</em></p>
-  <p>
-    <strong>Sinergi Integrasi 2 Sub-Tema:</strong><br />
-    🌿 <strong>Sub-Tema 1:</strong> <em>Konservasi Lingkungan & Keanekaragaman Hayati</em><br />
-    🧭 <strong>Sub-Tema 2:</strong> <em>Ekowisata Mandiri & Destinasi Wisata Ramah Lingkungan</em>
-  </p>
-  <p>Tim Pengembang: <strong>Tim Nescafe</strong></p>
+  <p>Tema: <em>"Lingkungan (EcoDigital For Environment)"</em> &middot; Tim Pengembang: <strong>Tim Nescafe</strong></p>
   <p>
     <a href="https://webdesign-nescafe-technoversary-vol.vercel.app/" target="_blank">
-      <strong>🌐 Live Deployment (Vercel)</strong>
+      <strong>🌐 Kunjungi Live Deployment (Vercel)</strong>
     </a>
   </p>
 </div>
 
 ---
 
-## 📖 1. Ikhtisar & Sinergi 2 Sub-Tema (Project Overview)
+## 📖 1. Ikhtisar & Konsep Karya (Project Overview)
 
-**CiremaiGreen** adalah platform *digital conservation field guide* dan edukasi ekowisata mandiri untuk kawasan **Taman Nasional Gunung Ciremai (3.078 mdpl)** — atap tertinggi Jawa Barat yang membentang di Kabupaten Kuningan dan Majalengka.
+**CiremaiGreen** adalah platform *digital conservation field guide* dan panduan ekowisata mandiri yang didedikasikan untuk kawasan **Taman Nasional Gunung Ciremai (3.078 mdpl)** — atap tertinggi Jawa Barat yang membentang di Kabupaten Kuningan dan Majalengka.
 
-Website ini dirancang secara khusus sebagai integrasi harmonis antara **2 sub-tema lomba** dalam satu kesatuan arsitektur digital: menghadirkan pengalaman penjelajahan alam yang memikat sekaligus menanamkan tanggung jawab proteksi ekosistem. CiremaiGreen memadukan estetika **Modern Dark Luxury (Obsidian & Forest Emerald)**, jurnalisme alam editorial bergaya majalah (*editorial typography*), data ilmiah terverifikasi, serta simulasi audit etika penjelajahan bebas sampah (*Leave No Trace*).
+### 🌿 Konsep & Misi Lingkungan
+Mengusung tema besar **Lingkungan**, CiremaiGreen lahir sebagai jembatan digital antara kekaguman terhadap bentang alam pegunungan dan tanggung jawab nyata dalam merawat kelestariannya. Website ini tidak memosisikan Gunung Ciremai sekadar sebagai komoditas wisata komersial, melainkan sebagai **laboratorium alam hidup dan menara air ekologis vital** bagi masyarakat Jawa Barat.
 
-### 🌿 Implementasi Sinergis 2 Sub-Tema Kompetisi
-Karya ini tidak hanya memilih satu sudut pandang, melainkan menyatukan **kedua sub-tema** secara holistik:
-
-1. **Sub-Tema 1: Konservasi Lingkungan & Keanekaragaman Hayati**
-   - **Indeks Spesies Dilindungi**: Inventarisasi taksonomi mendalam flora & fauna terancam punah (*Nisaetus bartelsi*, *Panthera pardus melas*, *Presbytis comata*, *Anaphalis javanica*) merujuk pada **IUCN Red List** dan **Permen LHK P.106/2018**.
-   - **Stratifikasi Zonasi Ekologi**: Visualisasi edukatif 4 zona kawasan konservasi (Zona Inti, Zona Rimba, Zona Pemanfaatan, dan Zona Rehabilitasi).
-   - **Etika Bebas Sampah (Leave No Trace)**: Edukasi interaktif pelarangan sampah plastik, tisu basah, dan perlindungan vegetasi sub-alpin dari degradasi fisik.
-
-2. **Sub-Tema 2: Ekowisata Mandiri & Destinasi Ramah Lingkungan**
-   - **Peta Geospasial 4 Jalur Pendakian Resmi**: Pemetaan interaktif rute Palutungan, Linggajati, Linggasana, dan Apuy lengkap dengan profil elevasi, koordinat GPS, dan pos registrasi BTNGC.
-   - **Kalkulator Jejak Karbon & Audit Logistik**: Alat bantu mandiri bagi pendaki untuk mengukur estimasi emisi transportasi darat dan checklist kesiapan logistik bebas sampah sebelum menuju basecamp.
-   - **Integrasi Pos Jaga & Jalur Edukasi**: Titik sebaran suaka alam, air terjun resapan, dan kontak siaga pos ranger untuk keselamatan pengunjung.
+Melalui pendekatan berbasis data ilmiah terverifikasi dan antarmuka interaktif yang imersif, CiremaiGreen mengusung konsep **Ekowisata Konservatif**:
+1. **Mengenal Ekosistem Hayati**: Menghadirkan profil taksonomi mendalam bagi flora dan fauna endemik terancam punah (*Elang Jawa, Macan Tutul Jawa, Surili, dan Edelweis*) berdasarkan data **IUCN Red List** dan **Permen LHK P.106/2018**, disertai edukasi stratifikasi zonasi kawasan perlindungan.
+2. **Navigasi Alam yang Bertanggung Jawab**: Menyediakan pemetaan geospasial interaktif untuk 4 jalur resmi pendakian (Palutungan, Linggajati, Linggasana, dan Apuy) dengan transparansi profil elevasi, titik resapan air, dan informasi pos jaga resmi BTNGC.
+3. **Kultur Penjelajahan Bebas Sampah (*Leave No Trace*)**: Memberdayakan pendaki melalui checklist persiapan logistik mandiri, edukasi tegas larangan sampah plastik/tisu basah di zona sub-alpin, serta kalkulator estimasi jejak karbon perjalanan.
 
 ### 🎨 Art Direction & Identitas Visual
-- **Latar Belakang Obsidian Deep Forest** (`#060e09` & `#0f2218`): Menciptakan kontras imersif yang menonjolkan panorama kawah serta keasrian vegetasi hutan pegunungan.
-- **Aksen Emerald Bio-Luminescent** (`#10b981` & `#34d399`): Aksen penanda interaktif, elevasi, dan status konservasi.
-- **Tipografi Eksklusif PP Mori**: Tipografi kontemporer sans-serif yang tajam, presisi, dan nyaman dibaca untuk metadata serta laporan ilmiah.
-- **Tipografi Editorial Serif (Newsreader)**: Digunakan khusus untuk kutipan etika rimba (*wilderness ethics*) dan tajuk reflektif.
-- **Tipografi Monospace**: Penanda koordinat geografis nyata (`6°53′30″S 108°24′00″E`), ketinggian pos, dan datum taksonomi IUCN.
+- **Latar Belakang Obsidian Deep Forest** (`#060e09` & `#0f2218`): Menciptakan atmosfer malam pegunungan yang imersif, elegan, dan menonjolkan panorama kawah kaldera secara sinematik.
+- **Aksen Emerald Bio-Luminescent** (`#10b981` & `#34d399`): Representasi pancaran kehidupan vegetasi hutan hujan pegunungan yang memandu interaksi pengguna.
+- **Tipografi Eksklusif PP Mori**: Tipografi kontemporer modern sans-serif yang tajam, proporsional, dan nyaman dibaca untuk penyampaian data ilmiah maupun narasi ekologis.
+- **Tipografi Editorial Serif (Newsreader)**: Digunakan khusus untuk kutipan etika rimba (*wilderness ethics*) dan refleksi filosofis.
+- **Tipografi Monospace**: Penanda presisi untuk koordinat geografis nyata (`6°53′30″S 108°24′00″E`), ketinggian pos, dan datum taksonomi biologis.
 
 ---
 
