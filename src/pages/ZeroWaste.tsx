@@ -86,13 +86,15 @@ export default function ZeroWaste() {
 
           <div className="max-w-3xl space-y-2">
             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-emerald-400">
-              Leave No Trace &middot; BTNGC Zero-Waste Protocol
+              Leave No Trace • BTNGC Zero-Waste Protocol
             </span>
             <h1 className="text-3xl sm:text-5xl font-normal text-white tracking-tight">
-              Panduan Mandiri Pendakian Bebas Sampah
+              {lang === 'ID' ? 'Panduan Mandiri Pendakian Bebas Sampah' : 'Independent Zero-Waste Mountaineering Guide'}
             </h1>
             <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-              Audit logistik pendakian Anda sebelum naik ke 3.078 mdpl. Cegah pencemaran mikroplastik, lindungi satwa dari ketergantungan makanan manusia, dan hitung estimasi jejak karbon perjalanan.
+              {lang === 'ID'
+                ? 'Audit logistik pendakian Anda sebelum naik ke 3.078 mdpl. Cegah pencemaran mikroplastik, lindungi satwa dari ketergantungan makanan manusia, dan hitung estimasi jejak karbon perjalanan.'
+                : 'Self-audit your packing inventory before ascending to 3,078 masl. Prevent microplastic runoff, protect native fauna from human food dependency, and estimate trip carbon emissions.'}
             </p>
           </div>
         </div>
@@ -109,7 +111,7 @@ export default function ZeroWaste() {
             <div className="bg-[#0f2218] border border-white/10 rounded-3xl p-6 space-y-5">
               <div className="flex items-center justify-between">
                 <span className="text-xs uppercase tracking-wider text-emerald-400 font-semibold">
-                  Kesiapan Logistik
+                  {lang === 'ID' ? 'Kesiapan Logistik' : 'Logistics Readiness'}
                 </span>
                 <span className="text-lg font-bold text-white font-mono">
                   {progressPercent}%
@@ -125,21 +127,23 @@ export default function ZeroWaste() {
               </div>
 
               <p className="text-xs text-neutral-300">
-                {completedCount} dari {totalItems} butir protokol zero-waste telah diverifikasi.
+                {lang === 'ID'
+                  ? `${completedCount} dari ${totalItems} butir protokol zero-waste telah diverifikasi.`
+                  : `${completedCount} of ${totalItems} zero-waste guidelines verified.`}
               </p>
 
               <div className="pt-2 flex items-center gap-2">
                 <button
                   type="button"
                   onClick={handleCheckAll}
-                  className="flex-1 py-2 px-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-medium text-neutral-200 transition-all"
+                  className="flex-1 py-2 px-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-medium text-neutral-200 transition-all cursor-pointer"
                 >
-                  Centang Semua
+                  {lang === 'ID' ? 'Centang Semua' : 'Check All'}
                 </button>
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="py-2 px-3 rounded-xl bg-white/5 hover:bg-rose-500/20 border border-white/10 text-xs text-rose-300 transition-all flex items-center gap-1"
+                  className="py-2 px-3 rounded-xl bg-white/5 hover:bg-rose-500/20 border border-white/10 text-xs text-rose-300 transition-all flex items-center gap-1 cursor-pointer"
                   title="Reset"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
@@ -152,20 +156,35 @@ export default function ZeroWaste() {
             <div className="bg-rose-950/30 border border-rose-500/30 rounded-3xl p-6 space-y-3">
               <h4 className="text-xs font-bold text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
                 <AlertTriangle className="w-4 h-4" />
-                Dilarang Keras di TNGC:
+                <span>{lang === 'ID' ? 'Dilarang Keras di TNGC:' : 'Strictly Prohibited in BTNGC:'}</span>
               </h4>
               <ul className="space-y-2 text-xs text-neutral-200">
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-1.5 shrink-0" />
-                  <span><strong>Tisu Basah</strong> (mengandung serat sintetis plastik yang tidak terurai puluhan tahun).</span>
+                  <span>
+                    <strong>{lang === 'ID' ? 'Tisu Basah' : 'Wet Wipes'}</strong>{' '}
+                    {lang === 'ID'
+                      ? '(mengandung serat sintetis plastik yang tidak terurai puluhan tahun).'
+                      : '(contains non-biodegradable synthetic plastic fibres lasting decades).'}
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-1.5 shrink-0" />
-                  <span><strong>Botol Plastik Sekali Pakai</strong> (wajib ganti botol tumbler / jeriken lipat).</span>
+                  <span>
+                    <strong>{lang === 'ID' ? 'Botol Plastik Sekali Pakai' : 'Single-Use Plastic Bottles'}</strong>{' '}
+                    {lang === 'ID'
+                      ? '(wajib ganti botol tumbler / jeriken lipat).'
+                      : '(must be replaced with reusable tumblers or canteens).'}
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-1.5 shrink-0" />
-                  <span><strong>Membuang Sisa Makanan Sembarangan</strong> (suhu dingin memperlambat dekomposisi hingga berbulan-bulan).</span>
+                  <span>
+                    <strong>{lang === 'ID' ? 'Membuang Sisa Makanan Sembarangan' : 'Discarding Organic Food Waste'}</strong>{' '}
+                    {lang === 'ID'
+                      ? '(suhu dingin memperlambat dekomposisi hingga berbulan-bulan).'
+                      : '(alpine temperatures stall decomposition for months and alter fauna diet).'}
+                  </span>
                 </li>
               </ul>
             </div>
@@ -176,16 +195,16 @@ export default function ZeroWaste() {
             {/* Filter Phase Tabs */}
             <div className="flex items-center gap-2 overflow-x-auto pb-2 text-xs no-scrollbar">
               {[
-                { id: 'all', label: 'Semua Protokol' },
-                { id: 'preparation', label: 'Persiapan Sebelum Berangkat' },
-                { id: 'packing', label: 'Packing Logistik' },
-                { id: 'on-trail', label: 'Di Jalur & Puncak' },
-                { id: 'post-trip', label: 'Pasca Turun' },
+                { id: 'all', label: lang === 'ID' ? 'Semua Protokol' : 'All Protocols' },
+                { id: 'preparation', label: lang === 'ID' ? 'Persiapan Sebelum Berangkat' : 'Pre-Trip Preparation' },
+                { id: 'packing', label: lang === 'ID' ? 'Packing Logistik' : 'Gear & Food Packing' },
+                { id: 'on-trail', label: lang === 'ID' ? 'Di Jalur & Puncak' : 'On Trail & Summit' },
+                { id: 'post-trip', label: lang === 'ID' ? 'Pasca Turun' : 'Post-Descent Checkout' },
               ].map((p) => (
                 <button
                   key={p.id}
                   onClick={() => setActivePhase(p.id as typeof activePhase)}
-                  className={`px-3.5 py-2 rounded-full border transition-all whitespace-nowrap ${
+                  className={`px-3.5 py-2 rounded-full border transition-all whitespace-nowrap cursor-pointer ${
                     activePhase === p.id
                       ? 'bg-emerald-500/20 text-emerald-300 border-emerald-400/50 font-semibold'
                       : 'bg-white/[0.03] text-neutral-300 border-white/10 hover:border-white/20'
@@ -235,7 +254,7 @@ export default function ZeroWaste() {
                         {item.description}
                       </p>
                       <p className="text-[11px] text-emerald-400/90 italic pt-1">
-                        Dampak Ekologis: {item.whyItMatters}
+                        {lang === 'ID' ? 'Dampak Ekologis' : 'Ecological Impact'}: {item.whyItMatters}
                       </p>
                     </div>
                   </div>
@@ -250,20 +269,24 @@ export default function ZeroWaste() {
         <div className="bg-[#0f2218] border border-white/10 rounded-3xl p-8 sm:p-12 space-y-6">
           <div className="max-w-2xl space-y-2">
             <span className="text-xs uppercase tracking-wider text-emerald-400 font-semibold">
-              Kalkulator Jejak Karbon
+              {lang === 'ID' ? 'Kalkulator Jejak Karbon' : 'Carbon Footprint Estimator'}
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Hitung Emisi Transportasi Perjalanan Anda ke Ciremai
+              {lang === 'ID'
+                ? 'Hitung Emisi Transportasi Perjalanan Anda ke Ciremai'
+                : 'Calculate Transportation Emissions to Mount Ciremai'}
             </h2>
             <p className="text-xs sm:text-sm text-neutral-300">
-              Ketahui estimasi emisi CO₂ perjalanan Anda dari kota asal ke pos pendakian di Kuningan / Majalengka dan kompensasikan dengan aksi penghijauan.
+              {lang === 'ID'
+                ? 'Ketahui estimasi emisi CO₂ perjalanan Anda dari kota asal ke pos pendakian di Kuningan / Majalengka dan kompensasikan dengan aksi penghijauan.'
+                : 'Estimate your round-trip travel CO₂ emissions from your home city to trailheads in Kuningan / Majalengka and explore local offsetting actions.'}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
             <div className="space-y-2">
               <label className="text-xs font-semibold text-neutral-300 block">
-                Moda Transportasi:
+                {lang === 'ID' ? 'Moda Transportasi:' : 'Transport Mode:'}
               </label>
               <select
                 value={selectedTransport}
@@ -280,7 +303,7 @@ export default function ZeroWaste() {
 
             <div className="space-y-2">
               <label className="text-xs font-semibold text-neutral-300 block">
-                Jarak Tempuh PP (km):
+                {lang === 'ID' ? 'Jarak Tempuh PP (km):' : 'Round-Trip Distance (km):'}
               </label>
               <input
                 type="number"
@@ -294,7 +317,7 @@ export default function ZeroWaste() {
 
             <div className="space-y-2">
               <label className="text-xs font-semibold text-neutral-300 block">
-                Jumlah Penumpang:
+                {lang === 'ID' ? 'Jumlah Penumpang:' : 'Passenger Count:'}
               </label>
               <input
                 type="number"
@@ -309,14 +332,20 @@ export default function ZeroWaste() {
 
           <div className="mt-6 p-6 rounded-2xl bg-emerald-950/40 border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-neutral-400 block">Estimasi Emisi Karbon Per Orang:</span>
+              <span className="text-xs text-neutral-400 block">
+                {lang === 'ID' ? 'Estimasi Emisi Karbon Per Orang:' : 'Estimated Carbon Footprint Per Person:'}
+              </span>
               <div className="text-3xl font-bold text-white font-mono mt-0.5">
                 {totalEmissionsKg} <span className="text-emerald-400 text-sm font-normal">kg CO₂e</span>
               </div>
             </div>
 
             <div className="text-xs text-neutral-300 max-w-md">
-              Dapat dikompensasikan dengan menanam <strong>1 bibit pohon Saninten/Jamuju</strong> di kawasan rehabilitasi bersama komunitas penyangga TNGC.
+              {lang === 'ID' ? (
+                <>Dapat dikompensasikan dengan menanam <strong>1 bibit pohon Saninten/Jamuju</strong> di kawasan rehabilitasi bersama komunitas penyangga TNGC.</>
+              ) : (
+                <>Offsettable by planting <strong>1 native Saninten or Jamuju tree sapling</strong> in rehabilitation zones alongside surrounding buffer communities.</>
+              )}
             </div>
           </div>
         </div>

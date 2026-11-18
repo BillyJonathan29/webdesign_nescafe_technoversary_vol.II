@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageSquare, X, Send, Sparkles, Compass } from 'lucide-react'
+import { MessageSquare, X, Send, ShieldCheck, Compass } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 
 interface Message {
@@ -127,11 +127,11 @@ export default function Chatbot() {
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-white flex items-center gap-1.5">
-                    Ranger Ciremai AI
-                    <Sparkles className="w-3.5 h-3.5 text-lime-400" />
+                    {lang === 'ID' ? 'Pos Layanan Ranger TNGC' : 'BTNGC Ranger Dispatch'}
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                   </h3>
                   <p className="text-[11px] text-emerald-300/70">
-                    {lang === 'ID' ? 'Asisten Digital Konservasi 3.078m' : 'Digital Conservation Guide'}
+                    {lang === 'ID' ? 'Layanan Informasi Konservasi & Jalur' : 'Conservation & Trails Dispatch'}
                   </p>
                 </div>
               </div>
@@ -220,9 +220,8 @@ export default function Chatbot() {
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
         className="w-14 h-14 rounded-full bg-gradient-to-tr from-emerald-600 via-emerald-500 to-lime-400 text-white flex items-center justify-center shadow-[0_8px_30px_rgba(16,185,129,0.5)] border border-emerald-300/40 cursor-pointer relative group"
-        aria-label="Toggle Ranger AI Chatbot"
+        aria-label="Toggle Ranger Dispatch Desk"
       >
-        <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-lime-400 ring-4 ring-[#060e09] animate-ping"></span>
         <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-lime-400 ring-2 ring-[#060e09]"></span>
         {isOpen ? <X className="w-6 h-6" /> : <MessageSquare className="w-6 h-6" />}
       </motion.button>

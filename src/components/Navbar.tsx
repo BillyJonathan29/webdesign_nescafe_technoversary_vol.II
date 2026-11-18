@@ -33,7 +33,10 @@ export default function Navbar() {
   }, [location.pathname])
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -30, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 font-['Mori',sans-serif] ${
         isScrolled
           ? 'bg-[#060e09]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-2xl py-2'
@@ -186,6 +189,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   )
 }

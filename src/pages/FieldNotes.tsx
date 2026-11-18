@@ -187,15 +187,15 @@ export default function FieldNotes() {
 
               <div className="flex items-center gap-2 overflow-x-auto text-xs no-scrollbar">
                 {[
-                  { id: 'all', label: 'Semua Spesies' },
-                  { id: 'fauna', label: 'Fauna Endemik' },
-                  { id: 'flora', label: 'Flora Pegunungan' },
-                  { id: 'threatened', label: 'Terancam Punah' },
+                  { id: 'all', label: lang === 'ID' ? 'Semua Spesies' : 'All Species' },
+                  { id: 'fauna', label: lang === 'ID' ? 'Fauna Endemik' : 'Endemic Fauna' },
+                  { id: 'flora', label: lang === 'ID' ? 'Flora Pegunungan' : 'Montane Flora' },
+                  { id: 'threatened', label: lang === 'ID' ? 'Terancam Punah' : 'Threatened' },
                 ].map((f) => (
                   <button
                     key={f.id}
                     onClick={() => setBioFilter(f.id as typeof bioFilter)}
-                    className={`px-3.5 py-1.5 rounded-full border transition-all ${
+                    className={`px-3.5 py-1.5 rounded-full border transition-all whitespace-nowrap cursor-pointer ${
                       bioFilter === f.id
                         ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300 font-semibold'
                         : 'bg-white/[0.03] border-white/10 text-neutral-300 hover:border-white/25'
@@ -391,25 +391,29 @@ export default function FieldNotes() {
             <div className="p-6 overflow-y-auto space-y-4 text-xs leading-relaxed">
               <div className="grid grid-cols-2 gap-4 bg-white/[0.03] p-3.5 rounded-2xl border border-white/10">
                 <div>
-                  <span className="text-neutral-400 text-[10px] uppercase font-semibold block">Zona Elevasi</span>
+                  <span className="text-neutral-400 text-[10px] uppercase font-semibold block">
+                    {lang === 'ID' ? 'Zona Elevasi' : 'Elevation Zone'}
+                  </span>
                   <span className="text-white font-medium">{selectedSpecies.elevationRange}</span>
                 </div>
                 <div>
-                  <span className="text-neutral-400 text-[10px] uppercase font-semibold block">Habitat Zonasi</span>
+                  <span className="text-neutral-400 text-[10px] uppercase font-semibold block">
+                    {lang === 'ID' ? 'Habitat Zonasi' : 'Zonation Habitat'}
+                  </span>
                   <span className="text-white font-medium">{selectedSpecies.habitatZonation}</span>
                 </div>
               </div>
 
               <div>
                 <h4 className="font-semibold text-white uppercase tracking-wider text-[11px] mb-1">
-                  Deskripsi &amp; Morfologi
+                  {lang === 'ID' ? 'Deskripsi & Morfologi' : 'Description & Morphology'}
                 </h4>
                 <p className="text-neutral-300">{selectedSpecies.description}</p>
               </div>
 
               <div>
                 <h4 className="font-semibold text-white uppercase tracking-wider text-[11px] mb-1">
-                  Peran Ekologis di Ciremai
+                  {lang === 'ID' ? 'Peran Ekologis di Ciremai' : 'Ecological Role in Ciremai'}
                 </h4>
                 <p className="text-neutral-300">{selectedSpecies.ecologicalRole}</p>
               </div>
@@ -417,13 +421,13 @@ export default function FieldNotes() {
               <div className="bg-emerald-950/40 border border-emerald-500/20 p-3.5 rounded-2xl">
                 <h4 className="font-semibold text-emerald-300 uppercase tracking-wider text-[11px] mb-1 flex items-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5" />
-                  Catatan Konservasi BTNGC
+                  <span>{lang === 'ID' ? 'Catatan Konservasi BTNGC' : 'BTNGC Conservation Notes'}</span>
                 </h4>
                 <p className="text-neutral-300">{selectedSpecies.conservationNotes}</p>
               </div>
 
               <div className="text-[10px] text-neutral-400 pt-2 border-t border-white/10">
-                Rujukan Verifikasi: {selectedSpecies.scientificReference}
+                {lang === 'ID' ? 'Rujukan Verifikasi:' : 'Scientific Reference:'} {selectedSpecies.scientificReference}
               </div>
             </div>
           </div>
@@ -460,7 +464,7 @@ export default function FieldNotes() {
               </p>
 
               <div className="text-neutral-400 text-[11px]">
-                Oleh: <strong className="text-white">{selectedArticle.author}</strong> ({selectedArticle.authorRole})
+                {lang === 'ID' ? 'Oleh:' : 'By:'} <strong className="text-white">{selectedArticle.author}</strong> ({selectedArticle.authorRole})
               </div>
 
               <div className="space-y-3 pt-3 text-sm text-neutral-200 leading-relaxed font-sans border-t border-white/10">
@@ -470,7 +474,9 @@ export default function FieldNotes() {
               </div>
 
               <div className="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/20 text-xs">
-                <span className="font-semibold text-emerald-300 block mb-1">Key Ecological Takeaway:</span>
+                <span className="font-semibold text-emerald-300 block mb-1">
+                  {lang === 'ID' ? 'Poin Kunci Ekologis:' : 'Key Ecological Takeaway:'}
+                </span>
                 <p className="text-neutral-200">{selectedArticle.keyTakeaway}</p>
               </div>
             </div>

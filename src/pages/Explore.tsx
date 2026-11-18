@@ -259,7 +259,7 @@ export default function Explore() {
                   {/* Karakter Ekologis */}
                   <div className="space-y-1.5">
                     <h3 className="text-[11px] font-mono uppercase tracking-[0.15em] font-semibold text-emerald-400">
-                      Karakter Ekologis
+                      {lang === 'ID' ? 'Karakter Ekologis' : 'Ecological Character'}
                     </h3>
                     <p className="text-xs font-semibold text-white">{selectedDestination.ecosystemType}</p>
                     <p className="text-xs text-neutral-300 leading-relaxed">
@@ -270,7 +270,7 @@ export default function Explore() {
                   {/* Karakteristik Kunci */}
                   <div className="space-y-2 pt-1">
                     <h3 className="text-[11px] font-mono uppercase tracking-[0.15em] font-semibold text-emerald-400">
-                      Karakteristik Kunci
+                      {lang === 'ID' ? 'Karakteristik Kunci' : 'Key Highlights'}
                     </h3>
                     <ul className="space-y-1.5 text-xs text-neutral-300">
                       {selectedDestination.keyFeatures.map((feat, i) => (
@@ -286,7 +286,7 @@ export default function Explore() {
                   <div className="p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl space-y-2">
                     <div className="flex items-center gap-2 text-xs font-semibold text-amber-300">
                       <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0" />
-                      <span>Ketentuan Kunjungan &amp; Konservasi</span>
+                      <span>{lang === 'ID' ? 'Ketentuan Kunjungan & Konservasi' : 'Visitation & Conservation Rules'}</span>
                     </div>
                     <ul className="space-y-1 text-xs text-neutral-300">
                       {selectedDestination.visitorGuidelines.map((guide, i) => (
@@ -304,14 +304,16 @@ export default function Explore() {
                       to="/zero-waste"
                       className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white text-xs font-semibold uppercase tracking-wider transition-all shadow-lg shadow-emerald-500/20"
                     >
-                      <span>Siapkan Logistik Nol Sampah</span>
+                      <span>{lang === 'ID' ? 'Siapkan Logistik Nol Sampah' : 'Prepare Zero-Waste Logistics'}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
                 </div>
               ) : (
                 <div className="p-12 border border-white/[0.08] bg-[#0c1a13] rounded-2xl text-center text-xs text-neutral-400">
-                  Pilih salah satu lokasi pada peta atau daftar di sebelah kiri untuk melihat rincian ekologis.
+                  {lang === 'ID'
+                    ? 'Pilih salah satu lokasi pada peta atau daftar di sebelah kiri untuk melihat rincian ekologis.'
+                    : 'Select a location on the map or list on the left to inspect ecological details.'}
                 </div>
               )}
             </div>
@@ -357,7 +359,7 @@ export default function Explore() {
 
                     <div className="pt-2 border-t border-white/[0.08] space-y-1">
                       <span className="text-[10px] font-semibold text-neutral-400 block uppercase tracking-wider">
-                        Ketentuan Kunci:
+                        {lang === 'ID' ? 'Ketentuan Kunci:' : 'Key Guidelines:'}
                       </span>
                       <p className="text-xs text-neutral-400 italic">
                         {dest.visitorGuidelines[0]}
@@ -376,7 +378,7 @@ export default function Explore() {
                     }}
                     className="w-full py-2.5 rounded-xl border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500 hover:text-white text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    <span>Fokuskan ke Peta Interaktif</span>
+                    <span>{lang === 'ID' ? 'Fokuskan ke Peta Interaktif' : 'Focus on Interactive Map'}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>

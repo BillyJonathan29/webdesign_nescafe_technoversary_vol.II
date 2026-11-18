@@ -127,13 +127,17 @@ export default function Contact() {
 
           <div className="max-w-3xl space-y-3">
             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-emerald-400">
-              Ranger Network &middot; Pos Jaga Lapangan &middot; Dukungan Komunitas
+              {lang === 'ID'
+                ? 'Ranger Network • Pos Jaga Lapangan • Dukungan Komunitas'
+                : 'Ranger Network • Field Checkpoints • Community Dispatch'}
             </span>
             <h1 className="text-3xl sm:text-5xl font-normal text-white tracking-tight">
-              Pusat Informasi &amp; Koordinasi Lapangan
+              {lang === 'ID' ? 'Pusat Informasi & Koordinasi Lapangan' : 'Field Information & Coordination Center'}
             </h1>
             <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-              Hubungi tim edukasi CiremaiGreen, sampaikan laporan kerusakan jalur, atau temukan lokasi dan jam operasional pos pemeriksaan resmi di lingkar Gunung Ciremai.
+              {lang === 'ID'
+                ? 'Hubungi tim edukasi CiremaiGreen, sampaikan laporan kerusakan jalur, atau temukan lokasi dan jam operasional pos pemeriksaan resmi di lingkar Gunung Ciremai.'
+                : 'Reach the CiremaiGreen conservation team, report trail erosion or waste issues, or locate official BTNGC ranger checkpoints.'}
             </p>
           </div>
         </div>
@@ -147,10 +151,10 @@ export default function Contact() {
           <div className="lg:col-span-6 bg-[#0f2218] border border-white/10 rounded-3xl p-8 shadow-2xl">
             <div className="space-y-2 mb-6">
               <span className="text-xs uppercase tracking-wider text-emerald-400 font-semibold">
-                Formulir Komunikasi
+                {lang === 'ID' ? 'Formulir Komunikasi' : 'Communication Form'}
               </span>
               <h2 className="text-2xl font-bold text-white tracking-tight">
-                Kirim Laporan atau Pertanyaan
+                {lang === 'ID' ? 'Kirim Laporan atau Pertanyaan' : 'Submit Inquiries or Field Reports'}
               </h2>
             </div>
 
@@ -158,9 +162,13 @@ export default function Contact() {
               <div className="p-6 rounded-2xl bg-emerald-950/40 border border-emerald-500/30 text-center space-y-4">
                 <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
                 <div className="space-y-1">
-                  <h3 className="text-lg font-bold text-white">Pesan Anda Berhasil Terkirim!</h3>
+                  <h3 className="text-lg font-bold text-white">
+                    {lang === 'ID' ? 'Pesan Anda Berhasil Terkirim!' : 'Your Message Was Successfully Sent!'}
+                  </h3>
                   <p className="text-xs text-neutral-300">
-                    Terima kasih atas kontribusi Anda. Tim konservasi CiremaiGreen akan membalas ke email <strong>{formData.email}</strong>.
+                    {lang === 'ID'
+                      ? <>Terima kasih atas kontribusi Anda. Tim konservasi CiremaiGreen akan membalas ke email <strong>{formData.email}</strong>.</>
+                      : <>Thank you for your report. The CiremaiGreen team will follow up via email at <strong>{formData.email}</strong>.</>}
                   </p>
                 </div>
                 <button
@@ -177,26 +185,30 @@ export default function Contact() {
                   }}
                   className="px-6 py-2.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white text-xs font-semibold uppercase tracking-wider transition-all"
                 >
-                  Kirim Pesan Lain
+                  {lang === 'ID' ? 'Kirim Pesan Lain' : 'Send Another Message'}
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 text-xs">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="font-semibold text-neutral-300 block">Nama Lengkap *</label>
+                    <label className="font-semibold text-neutral-300 block">
+                      {lang === 'ID' ? 'Nama Lengkap *' : 'Full Name *'}
+                    </label>
                     <input
                       type="text"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      placeholder="contoh: Rahmat Hidayat"
+                      placeholder={lang === 'ID' ? 'contoh: Rahmat Hidayat' : 'e.g. John Doe'}
                       className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-400"
                     />
                     {errors.fullName && <p className="text-[11px] text-rose-400">{errors.fullName}</p>}
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="font-semibold text-neutral-300 block">Email Aktif *</label>
+                    <label className="font-semibold text-neutral-300 block">
+                      {lang === 'ID' ? 'Email Aktif *' : 'Active Email *'}
+                    </label>
                     <input
                       type="email"
                       value={formData.email}
@@ -209,38 +221,52 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="font-semibold text-neutral-300 block">Kategori Pesan *</label>
+                  <label className="font-semibold text-neutral-300 block">
+                    {lang === 'ID' ? 'Kategori Pesan *' : 'Message Category *'}
+                  </label>
                   <select
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                     className="w-full bg-[#0a1610] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-400"
                   >
-                    <option value="pertanyaan-umum">Pertanyaan Umum Jalur &amp; Simaksi</option>
-                    <option value="laporan-jalur">Laporan Kerusakan Jalur / Tumpukan Sampah</option>
-                    <option value="usulan-konten">Usulan Materi Edukasi / Riset</option>
-                    <option value="relawan">Pendaftaran Relawan Konservasi</option>
+                    <option value="pertanyaan-umum">
+                      {lang === 'ID' ? 'Pertanyaan Umum Jalur & Simaksi' : 'General Trail & Permit Inquiries'}
+                    </option>
+                    <option value="laporan-jalur">
+                      {lang === 'ID' ? 'Laporan Kerusakan Jalur / Tumpukan Sampah' : 'Trail Damage or Litter Report'}
+                    </option>
+                    <option value="usulan-konten">
+                      {lang === 'ID' ? 'Usulan Materi Edukasi / Riset' : 'Research or Educational Proposal'}
+                    </option>
+                    <option value="relawan">
+                      {lang === 'ID' ? 'Pendaftaran Relawan Konservasi' : 'Volunteer Conservation Registration'}
+                    </option>
                   </select>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="font-semibold text-neutral-300 block">Subjek Pesan *</label>
+                  <label className="font-semibold text-neutral-300 block">
+                    {lang === 'ID' ? 'Subjek Pesan *' : 'Subject *'}
+                  </label>
                   <input
                     type="text"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    placeholder="contoh: Pertanyaan Rute Palutungan"
+                    placeholder={lang === 'ID' ? 'contoh: Pertanyaan Rute Palutungan' : 'e.g. Palutungan Trail Route'}
                     className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-400"
                   />
                   {errors.subject && <p className="text-[11px] text-rose-400">{errors.subject}</p>}
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="font-semibold text-neutral-300 block">Isi Pesan Detail *</label>
+                  <label className="font-semibold text-neutral-300 block">
+                    {lang === 'ID' ? 'Isi Pesan Detail *' : 'Detailed Message *'}
+                  </label>
                   <textarea
                     rows={5}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tuliskan pesan Anda secara jelas..."
+                    placeholder={lang === 'ID' ? 'Tuliskan pesan Anda secara jelas...' : 'Write your detailed message here...'}
                     className="w-full bg-white/[0.04] border border-white/10 rounded-xl p-4 text-xs text-white focus:outline-none focus:border-emerald-400"
                   />
                   {errors.message && <p className="text-[11px] text-rose-400">{errors.message}</p>}
@@ -252,7 +278,11 @@ export default function Contact() {
                   className="w-full py-3.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white font-semibold uppercase tracking-wider text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
-                  <span>{isSubmitting ? 'Mengirim Pesan...' : 'Kirim Pesan'}</span>
+                  <span>
+                    {isSubmitting
+                      ? (lang === 'ID' ? 'Mengirim Pesan...' : 'Sending Message...')
+                      : (lang === 'ID' ? 'Kirim Pesan' : 'Submit Message')}
+                  </span>
                 </button>
               </form>
             )}
@@ -262,10 +292,10 @@ export default function Contact() {
           <div className="lg:col-span-6 space-y-4">
             <div className="space-y-2 mb-2">
               <span className="text-xs uppercase tracking-wider text-emerald-400 font-semibold">
-                Pos Pemeriksaan Resmi
+                {lang === 'ID' ? 'Pos Pemeriksaan Resmi' : 'Official Checkpoints'}
               </span>
               <h2 className="text-2xl font-bold text-white tracking-tight">
-                Pos Jaga &amp; Resor Konservasi TNGC
+                {lang === 'ID' ? 'Pos Jaga & Resor Konservasi TNGC' : 'BTNGC Ranger Stations & Basecamps'}
               </h2>
             </div>
 
@@ -291,7 +321,7 @@ export default function Contact() {
                     </span>
                   </div>
                   <p className="text-[11px] text-emerald-400/80 pt-1 border-t border-white/5">
-                    Fokus: {station.focus}
+                    {lang === 'ID' ? 'Fokus' : 'Focus'}: {station.focus}
                   </p>
                 </div>
               ))}
